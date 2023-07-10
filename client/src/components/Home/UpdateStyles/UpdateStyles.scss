@@ -1,0 +1,21 @@
+.update-form {
+  width: 400px;
+  margin: 20px auto;
+  padding: 20px 0;
+  border-radius: 10px;
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .input-feild {
+    margin: 0 auto 20px auto;
+    width: fit-content;
+    label {
+      margin-right: 5px;
+    }
+  }
+  .action-buttons {
+    display: flex;
+    justify-content: space-evenly;
+  }
+}

@@ -1,0 +1,12 @@
+.cards-section {
+  margin: 0 auto;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.cards-section > div {
+  width: 30%;
+  max-width: 300px;
+}
