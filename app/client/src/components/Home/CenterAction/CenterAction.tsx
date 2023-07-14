@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import Button from '../../Elements/Button/Button'
 import './CenterAction.scss'
+import { Button } from '../../Elements/ButtonE'
 
 const CenterAction = (props: any): JSX.Element => {
   const [data, setData] = useState({ name: '', description: '', error: '' })
@@ -26,7 +26,7 @@ const CenterAction = (props: any): JSX.Element => {
         <h1>Center Action</h1>
         <br />
         <div onClick={getData}>
-          <Button title={name} />
+          <Button>{name}</Button>
         </div>
       </div>
       <div className="action-data">

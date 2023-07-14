@@ -1,5 +1,5 @@
 import React from 'react'
-import CardE from '../../Elements/Card/CardE'
+import CardE from '../../Elements/CardE'
 import './Cards.scss'
 
 const Cards = (): JSX.Element => {

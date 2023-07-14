@@ -6,7 +6,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '../../ui/card'
+} from '../ui/card'
 
 const CardE = (): JSX.Element => {
   return (

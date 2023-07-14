@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { paletteContext } from '../../../contexts/PaletteContext'
-import Button from '../../Elements/Button/Button'
 import { paletteDefaults } from '../../../utils/defaults'
 import './UpdateStyles.scss'
+import { Button } from '../../Elements/ButtonE'
 
 const UpdateStyles = (): JSX.Element => {
   const [ec1, setEc1] = useState('')
@@ -94,10 +94,10 @@ const UpdateStyles = (): JSX.Element => {
         </div>
         <div className="action-buttons">
           <div onClick={updateStyles}>
-            <Button title="UPDATE" />
+            <Button variant="outline">UPDATE</Button>
           </div>
           <div onClick={resetStyles}>
-            <Button title="default" />
+            <Button title="default">Default </Button>
           </div>
         </div>
       </form>
