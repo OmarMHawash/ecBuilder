@@ -77,6 +77,40 @@
   }
 }
 
-.app {
-  min-height: 100vh;
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.6rem;
+}
+h4 {
+  font-size: 1.45rem;
+}
+h5 {
+  font-size: 1.25rem;
+}
+h6 {
+  font-style: italic;
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+
+.wt-1 {
+  font-weight: 100;
+}
+.wt-5 {
+  font-weight: 500;
+}
+.wt-9 {
+  font-weight: 900;
+}
+
+.img-placeholder {
+  min-height: 300px;
+  img {
+    background-color: #d2d2d250;
+  }
 }

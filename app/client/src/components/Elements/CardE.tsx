@@ -8,21 +8,37 @@ import {
   CardTitle,
 } from '../ui/card'
 
-const CardE = (): JSX.Element => {
+const CardE = ({
+  title,
+  desc,
+  content,
+  footer,
+  href,
+}: CardEProps): JSX.Element => {
   return (
     <Card className="l2-back">
-      <CardHeader>
-        <CardTitle>Card Title</CardTitle>
-        <CardDescription>Card Description</CardDescription>
-      </CardHeader>
       <CardContent>
-        <p>Card Content</p>
+        <img src={content} alt="content-img" />
       </CardContent>
+      <CardHeader>
+        <CardTitle>{title}</CardTitle>
+        <CardDescription>{desc}</CardDescription>
+      </CardHeader>
       <CardFooter>
-        <p>Card Footer</p>
+        <a href={href}>
+          <em>{footer}</em>
+        </a>
       </CardFooter>
     </Card>
   )
+}
+
+interface CardEProps {
+  title: string
+  desc: string
+  content: string
+  footer: string
+  href: string
 }
 
 export default CardE

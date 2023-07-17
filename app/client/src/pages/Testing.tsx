@@ -1,7 +1,6 @@
 import React from 'react'
-import Header from '../components/Header/Header'
+import Header from '../components/Layout/Header/Header'
 import CenterAction from '../components/Home/CenterAction/CenterAction'
-import Cards from '../components/Sections/Cards/Cards'
 import UpdateStyles from '../components/Home/UpdateStyles/UpdateStyles'
 
 const Testing = (): JSX.Element => {
@@ -9,7 +8,6 @@ const Testing = (): JSX.Element => {
     <div className="test-button">
       <Header />
       <CenterAction name="Get Data" />
-      <Cards />
       <UpdateStyles />
     </div>
   )

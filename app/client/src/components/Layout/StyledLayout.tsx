@@ -25,13 +25,19 @@ const StyledLayout = (): JSX.Element => {
   body {
     background-color: ${paletteVal.ecL1};
   }
+  button,input,textarea,select{
+    background-color: ${paletteVal.ecL2};
+  }
   .l2-back{
     background-color: ${paletteVal.ecL2};
   }
-  button,input,textarea,select,header,footer{
+  .l3-back,header,footer{
     background-color: ${paletteVal.ecL3};
   }
-  h1,h2,h3,h4,h5,h6,p,label,span{
+  .l3-text{
+    color: ${paletteVal.ecL3};
+  }
+  h1,h2,h3,h4,h5,h6,p,label,a{
     color: ${paletteVal.ecL4};
   }
 `

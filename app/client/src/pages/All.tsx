@@ -1,15 +1,20 @@
 import React from 'react'
 import Cards from '../components/Sections/Cards/Cards'
-import AccordionE from '../components/Elements/AccordionE'
-import { Button } from '../components/Elements/ButtonE'
+import Accordions from '../components/Sections/Accordions/Accordions'
+import Header from '../components/Sections/Header/Header'
+import Footer from '../components/Sections/Footer/Footer'
+import Hero from '../components/Sections/Hero/Hero'
+import Tabbed from '../components/Sections/Tabbed/Tabbed'
 
 const All = (): JSX.Element => {
   return (
     <div>
+      <Header />
+      <Hero />
       <Cards />
-      <AccordionE />
-      <Button variant="outline">Hello</Button>
-      <Button variant="destructive">Delete</Button>
+      <Tabbed />
+      <Accordions />
+      <Footer />
     </div>
   )
 }

@@ -6,17 +6,20 @@ import {
   AccordionTrigger,
 } from '../ui/accordion'
 
-const AccordionE = (): JSX.Element => {
+const AccordionE = ({ question, answer }: AccordionEProps): JSX.Element => {
   return (
     <Accordion type="single" collapsible>
-      <AccordionItem value="item-1">
-        <AccordionTrigger>Is it accessible?</AccordionTrigger>
-        <AccordionContent>
-          Yes. It adheres to the WAI-ARIA design pattern.
-        </AccordionContent>
+      <AccordionItem value="item-1" className="accordion">
+        <AccordionTrigger>{question}</AccordionTrigger>
+        <AccordionContent>{answer}</AccordionContent>
       </AccordionItem>
     </Accordion>
   )
+}
+
+interface AccordionEProps {
+  question: string
+  answer: string
 }
 
 export default AccordionE
