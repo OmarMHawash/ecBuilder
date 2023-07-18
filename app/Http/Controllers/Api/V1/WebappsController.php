@@ -3,31 +3,39 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreComponentRequest;
-use App\Models\Component;
+use App\Models\Webapp;
 use Illuminate\Http\Request;
 
-class ComponentsController extends Controller
+class WebappsController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
-        $components = Component::all();
-        return response()->json($components, 200, ['Content-Type' => 'application/json']);
+        // 
+        $webapps = Webapp::all();
+        return response()->json($webapps, 200, ['Content-Type' => 'application/json']);
     }
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreComponentRequest $request)
-    {
-        $component = Component::create($request->validated());
-        return response()->json($component, 201, ['Content-Type' => 'application/json']);
-    }
+
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
         //
+
+
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        //
+        $webapp = Webapp::create($request->all());
+        return response()->json($webapp, 201, ['Content-Type' => 'application/json']);
     }
 
     /**
@@ -36,8 +44,8 @@ class ComponentsController extends Controller
     public function show(string $id)
     {
         //
-        $component = Component::find($id);
-        return response()->json($component, 200, ['Content-Type' => 'application/json']);
+        $webapp = Webapp::find($id);
+        return response()->json($webapp, 200, ['Content-Type' => 'application/json']);
     }
 
     /**

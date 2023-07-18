@@ -11,14 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('components_webapps', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->require();
-            $table->string('email')->unique()->require();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password')->require();
-            $table->string('profile_pic')->default('default_pic');
-            $table->rememberToken();
+            $table->unsignedBigInteger('component_id');
+            $table->unsignedBigInteger('webapp_id');
+            $table->foreign('component_id')->references('id')->on('components');
+            $table->foreign('webapp_id')->references('id')->on('webapps');
             $table->timestamps();
         });
     }
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('components_webapps');
     }
 };

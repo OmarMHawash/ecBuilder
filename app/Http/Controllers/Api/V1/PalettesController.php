@@ -3,25 +3,21 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreComponentRequest;
-use App\Models\Component;
+use App\Models\Palette;
 use Illuminate\Http\Request;
 
-class ComponentsController extends Controller
+class PalettesController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
-        $components = Component::all();
-        return response()->json($components, 200, ['Content-Type' => 'application/json']);
+        //
+        $palettes = Palette::all();
+        return response()->json($palettes, 200, ['Content-Type' => 'application/json']);
     }
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreComponentRequest $request)
-    {
-        $component = Component::create($request->validated());
-        return response()->json($component, 201, ['Content-Type' => 'application/json']);
-    }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -31,13 +27,23 @@ class ComponentsController extends Controller
     }
 
     /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        //
+        $palette = Palette::create($request->all());
+        return response()->json($palette, 201, ['Content-Type' => 'application/json']);
+    }
+
+    /**
      * Display the specified resource.
      */
     public function show(string $id)
     {
         //
-        $component = Component::find($id);
-        return response()->json($component, 200, ['Content-Type' => 'application/json']);
+        $palette = Palette::find($id);
+        return response()->json($palette, 200, ['Content-Type' => 'application/json']);
     }
 
     /**

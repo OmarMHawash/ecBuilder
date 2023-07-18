@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('components', function (Blueprint $table) {
+        Schema::create('websites', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique()->require();
+            $table->string('name')->unique()->default('ecBuilder');
             $table->string('description', 1000)->nullable();
-            $table->string('path')->unique()->require();
+            $table->string('def_proj_path')->default('storage/webapps/default_app');
+            $table->string('domain')->default('localhost:8000');
+            $table->string('client_path')->default('app/client');
             $table->string('config')->nullable();
             $table->timestamps();
         });
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('components');
+        Schema::dropIfExists('websites');
     }
 };
