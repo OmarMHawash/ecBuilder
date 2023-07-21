@@ -1,8 +1,9 @@
 export const palette = {
-  np_ecL1: '#F2F2F2',
-  np_ecL2: '#E6E6E6',
-  np_ecL3: '#D9D9D9',
-  np_ecL4: '#CCCCCC',
+  back: '#F2F2F2',
+  prim: '#E6E6E6',
+  secd: '#D9D9D9',
+  text: '#CCCCCC',
+  accn: '#BFBFBFaa',
 }
 
 export const metaData = {
@@ -17,15 +18,15 @@ export const headerData = {
   main_nav: [
     {
       name: 'Services',
-      href: '#',
+      href: '/services',
     },
     {
       name: 'About',
-      href: '#',
+      href: '/about',
     },
     {
       name: 'Contact',
-      href: '#',
+      href: '/contact',
     },
   ],
   more_nav: {

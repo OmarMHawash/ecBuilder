@@ -3,7 +3,6 @@ import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
 } from '../../ui/navigation-menu'
@@ -21,9 +20,7 @@ const NavMenu = (): JSX.Element => {
               className="header-item"
             >
               <a href={item.href}>
-                <NavigationMenuLink className="text-sm wt-5">
-                  {item.name}
-                </NavigationMenuLink>
+                <div className="text-sm wt-5">{item.name}</div>
               </a>
             </NavigationMenuItem>
           ))}

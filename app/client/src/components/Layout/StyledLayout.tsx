@@ -6,39 +6,43 @@ import type { PaletteContext } from '@/src/types/paletteContext'
 import type { Palette } from '@/src/types/palette'
 
 const StyledLayout = (): JSX.Element => {
-  const [paletteVal, setPalette] = useState(useContext(paletteContext).palette)
+  const [paletteVal, setPaletteVal] = useState(
+    useContext(paletteContext).palette
+  )
 
   const paletteObj: PaletteContext = {
     setPalette: (pal: Palette) => {
       const newPal = {
-        ecL1: pal.ecL1 !== '' ? pal.ecL1 : paletteVal.ecL1,
-        ecL2: pal.ecL2 !== '' ? pal.ecL2 : paletteVal.ecL2,
-        ecL3: pal.ecL3 !== '' ? pal.ecL3 : paletteVal.ecL3,
-        ecL4: pal.ecL4 !== '' ? pal.ecL4 : paletteVal.ecL4,
+        back: pal.back !== '' ? pal.back : paletteVal.back,
+        prim: pal.prim !== '' ? pal.prim : paletteVal.prim,
+        secd: pal.secd !== '' ? pal.secd : paletteVal.secd,
+        text: pal.text !== '' ? pal.text : paletteVal.text,
+        accn: pal.accn !== '' ? pal.accn : paletteVal.accn,
       }
-      setPalette(newPal)
+      console.log('StyledLayout ~ newPal:', newPal)
+      setPaletteVal(newPal)
     },
     palette: paletteVal,
   }
 
   const GlobalStyle = createGlobalStyle`
   body {
-    background-color: ${paletteVal.ecL1};
+    background-color: ${paletteVal.back};
   }
   button,input,textarea,select{
-    background-color: ${paletteVal.ecL2};
+    background-color: ${paletteVal.prim};
   }
   .l2-back{
-    background-color: ${paletteVal.ecL2};
+    background-color: ${paletteVal.prim};
   }
   .l3-back,header,footer{
-    background-color: ${paletteVal.ecL3};
+    background-color: ${paletteVal.secd};
   }
   .l3-text{
-    color: ${paletteVal.ecL3};
+    color: ${paletteVal.secd};
   }
   h1,h2,h3,h4,h5,h6,p,label,a{
-    color: ${paletteVal.ecL4};
+    color: ${paletteVal.text};
   }
 `
   return (

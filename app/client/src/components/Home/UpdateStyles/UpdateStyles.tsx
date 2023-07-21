@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { paletteContext } from '../../../contexts/PaletteContext'
 import { paletteDefaults } from '../../../utils/defaults'
-import './UpdateStyles.scss'
 import { Button } from '../../Elements/ButtonE'
+import { get } from '../../../utils/api'
+import type { Palette } from '@/src/types/palette'
+import './UpdateStyles.scss'
 
 const UpdateStyles = (): JSX.Element => {
   const [ec1, setEc1] = useState('')
@@ -12,32 +14,44 @@ const UpdateStyles = (): JSX.Element => {
   const { setPalette } = useContext(paletteContext)
 
   useEffect(() => {
-    fillInputs()
+    fillInputs(paletteDefaults)
   }, [])
 
-  const fillInputs = (): void => {
-    setEc1(paletteDefaults.ecL1)
-    setEc2(paletteDefaults.ecL2)
-    setEc3(paletteDefaults.ecL3)
-    setEc4(paletteDefaults.ecL4)
+  const fillInputs = (obj: Palette): void => {
+    setEc1(obj.back)
+    setEc2(obj.prim)
+    setEc3(obj.secd)
+    setEc4(obj.text)
   }
   const updateStyles = (e: any): void => {
     e.preventDefault()
     const styleObj = {
-      ecL1: ec1,
-      ecL2: ec2,
-      ecL3: ec3,
-      ecL4: ec4,
+      back: ec1,
+      prim: ec2,
+      secd: ec3,
+      text: ec4,
+      accn: paletteDefaults.accn,
     }
-    console.log(styleObj)
+    console.log('updated:', styleObj)
     setPalette(styleObj)
   }
 
-  const resetStyles = (e: any): void => {
+  // @ts-ignore
+  const resetStyles = async (e: any): void => {
     e.preventDefault()
-    const styleObj = paletteDefaults
-    fillInputs()
-    setPalette(styleObj)
+    let styleObj: Palette
+    await get('/palettes').then((res) => {
+      styleObj = {
+        back: res[0].background,
+        prim: res[0].primary,
+        secd: res[0].secondary,
+        text: res[0].text,
+        accn: res[0].accent,
+      }
+      // console.log(styleObj)
+      setPalette(styleObj)
+      fillInputs(styleObj)
+    })
   }
 
   return (
@@ -57,11 +71,11 @@ const UpdateStyles = (): JSX.Element => {
           />
         </div>
         <div className="input-feild">
-          <label htmlFor="ecL2">#2 Color</label>
+          <label htmlFor="prim">#2 Color</label>
           <input
             type="text"
-            name="ecL2"
-            id="ecL2"
+            name="prim"
+            id="prim"
             value={ec2}
             onChange={(e) => {
               setEc2(e.target.value)
@@ -69,11 +83,11 @@ const UpdateStyles = (): JSX.Element => {
           />
         </div>
         <div className="input-feild">
-          <label htmlFor="ecL3">#3 Color</label>
+          <label htmlFor="secd">#3 Color</label>
           <input
             type="text"
-            name="ecL3"
-            id="ecL3"
+            name="secd"
+            id="secd"
             value={ec3}
             onChange={(e) => {
               setEc3(e.target.value)
@@ -81,11 +95,11 @@ const UpdateStyles = (): JSX.Element => {
           />
         </div>
         <div className="input-feild">
-          <label htmlFor="ecL4">#4 Color</label>
+          <label htmlFor="text">#4 Color</label>
           <input
             type="text"
-            name="ecL4"
-            id="ecL4"
+            name="text"
+            id="text"
             value={ec4}
             onChange={(e) => {
               setEc4(e.target.value)
@@ -97,7 +111,7 @@ const UpdateStyles = (): JSX.Element => {
             <Button variant="outline">UPDATE</Button>
           </div>
           <div onClick={resetStyles}>
-            <Button title="default">Default </Button>
+            <Button title="default">get Defaults </Button>
           </div>
         </div>
       </form>

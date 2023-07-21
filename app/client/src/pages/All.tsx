@@ -5,6 +5,7 @@ import Header from '../components/Sections/Header/Header'
 import Footer from '../components/Sections/Footer/Footer'
 import Hero from '../components/Sections/Hero/Hero'
 import Tabbed from '../components/Sections/Tabbed/Tabbed'
+import UpdateStyles from '../components/Home/UpdateStyles/UpdateStyles'
 
 const All = (): JSX.Element => {
   return (
@@ -14,6 +15,7 @@ const All = (): JSX.Element => {
       <Cards />
       <Tabbed />
       <Accordions />
+      <UpdateStyles />
       <Footer />
     </div>
   )

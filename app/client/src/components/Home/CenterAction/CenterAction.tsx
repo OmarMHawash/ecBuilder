@@ -1,23 +1,13 @@
-import React, { useState } from 'react'
-import axios from 'axios'
-import './CenterAction.scss'
+import React from 'react'
 import { Button } from '../../Elements/ButtonE'
+import './CenterAction.scss'
 
 const CenterAction = (props: any): JSX.Element => {
-  const [data, setData] = useState({ name: '', description: '', error: '' })
+  // const [data, setData] = useState({ name: '', description: '', error: '' })
   const { name } = props
 
   const getData = (): void => {
     console.log('getting data')
-    axios
-      .get('http://localhost:8000/api/v1/header')
-      .then((res) => {
-        setData(res.data)
-      })
-      .catch((err) => {
-        setData({ ...data, error: 'Error getting data' })
-        console.log(err)
-      })
   }
 
   return (
@@ -33,8 +23,8 @@ const CenterAction = (props: any): JSX.Element => {
         <h2>
           <b>Data:</b>
         </h2>
-        <p>Name: {data.name}</p>
-        <p>Description: {data.description}</p>
+        {/* <p>Name: {data.name}</p>
+        <p>Description: {data.description}</p> */}
       </div>
     </div>
   )
