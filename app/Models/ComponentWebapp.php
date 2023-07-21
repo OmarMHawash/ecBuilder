@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class ComponentWebapp extends Model
 {
     use HasFactory;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'component_id',
+        'webapp_id',
+    ];
 }

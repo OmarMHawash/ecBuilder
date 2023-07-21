@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
-use App\Models\UserWebapp;
+use App\Models\Website;
 use Illuminate\Http\Request;
 
 class WebsitesController extends Controller
@@ -13,9 +13,9 @@ class WebsitesController extends Controller
      */
     public function index()
     {
-        //
-        $users_webapps = UserWebapp::all();
-        return response()->json($users_webapps, 200, ['Content-Type' => 'application/json']);
+        // do it
+        $website = Website::all();
+        return response()->json($website, 200, ['Content-Type' => 'application/json']);
     }
 
     /**
@@ -32,6 +32,12 @@ class WebsitesController extends Controller
     public function store(Request $request)
     {
         //
+        $website = Website::all();
+        if ($website->count() > 0) {
+            return response()->json(['message' => 'Website already exists'], 409, ['Content-Type' => 'application/json']);
+        }
+        $website = Website::create($request->all());
+        return response()->json($website, 201, ['Content-Type' => 'application/json']);
     }
 
     /**
@@ -40,6 +46,8 @@ class WebsitesController extends Controller
     public function show(string $id)
     {
         //
+        $website = Website::all();
+        return response()->json($website, 200, ['Content-Type' => 'application/json']);
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
+use App\Models\ComponentWebapp;
 use Illuminate\Http\Request;
 
 class ComponentsWebappsController extends Controller
@@ -13,6 +14,8 @@ class ComponentsWebappsController extends Controller
     public function index()
     {
         //
+        $components_webapps = ComponentWebapp::all();
+        return response()->json($components_webapps, 200, ['Content-Type' => 'application/json']);
     }
 
     /**
@@ -21,6 +24,7 @@ class ComponentsWebappsController extends Controller
     public function create()
     {
         //
+
     }
 
     /**
@@ -28,7 +32,9 @@ class ComponentsWebappsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // do it
+        $component_webapp = ComponentWebapp::create($request->all());
+        return response()->json($component_webapp, 201, ['Content-Type' => 'application/json']);
     }
 
     /**
@@ -37,6 +43,8 @@ class ComponentsWebappsController extends Controller
     public function show(string $id)
     {
         //
+        $component_webapp = ComponentWebapp::find($id);
+        return response()->json($component_webapp, 200, ['Content-Type' => 'application/json']);
     }
 
     /**

@@ -8,4 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Palette extends Model
 {
     use HasFactory;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'name',
+        'text',
+        'background',
+        'primary',
+        'secondary',
+        'accent',
+    ];
 }

@@ -24,8 +24,6 @@ class WebappsController extends Controller
     public function create()
     {
         //
-
-
     }
 
     /**

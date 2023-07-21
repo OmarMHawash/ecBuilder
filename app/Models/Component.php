@@ -9,8 +9,15 @@ class Component extends Model
 {
     use HasFactory;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
     protected $fillable = [
         'name',
-        'value',
+        'description',
+        'path',
+        'config',
     ];
 }
