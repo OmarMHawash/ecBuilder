@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Controllers\Controller;
 use App\Models\Webapp;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class WebappsController extends Controller
 {
@@ -68,5 +69,11 @@ class WebappsController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function download()
+    {
+        $url = base_path() . Storage::url('text.txt');
+        return response()->download($url, 'text.txt', ['Content-Type' => 'text/plain']);
     }
 }

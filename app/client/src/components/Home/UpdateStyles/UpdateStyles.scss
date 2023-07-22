@@ -1,21 +1,48 @@
 .update-form {
-  width: 400px;
-  margin: 20px auto;
-  padding: 20px 0;
-  border-radius: 10px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 0 5px 5px 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  overflow: scroll;
+  background-color: whitesmoke;
   h2 {
     text-align: center;
-    margin-bottom: 20px;
+  }
+  form {
+    display: flex;
   }
   .input-feild {
-    margin: 0 auto 20px auto;
-    width: fit-content;
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    height: 50px;
     label {
       margin-right: 5px;
+      color: black;
+    }
+    input {
+      width: 100px;
+      height: 25px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 5px;
+    }
+    .label-wrapper {
+      display: flex;
     }
   }
   .action-buttons {
     display: flex;
-    justify-content: space-evenly;
+    button {
+      margin: 5px;
+    }
   }
+}
+div::-webkit-scrollbar {
+  height: 10px;
+  width: 0px;
+  background: transparent;
+  border: 1px solid #ccc;
 }

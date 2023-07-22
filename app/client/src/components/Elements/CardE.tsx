@@ -16,7 +16,7 @@ const CardE = ({
   href,
 }: CardEProps): JSX.Element => {
   return (
-    <Card className="l2-back">
+    <Card className="prim">
       <CardContent>
         <img src={content} alt="content-img" />
       </CardContent>

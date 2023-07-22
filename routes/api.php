@@ -16,6 +16,7 @@ Route::group(['prefix' => 'v1'], function () {
     Route::apiResource('palettes', PalettesController::class);
     Route::apiResource('websites', WebsitesController::class);
     Route::apiResource('webapps', WebappsController::class);
+    Route::get('webapp/1/download', [WebappsController::class, 'download']);
     Route::apiResource('components_webapps', ComponentsWebappsController::class);
     Route::apiResource('users_webapps', UsersWebappsController::class);
 });

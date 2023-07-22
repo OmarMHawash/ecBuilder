@@ -6,7 +6,7 @@ const Hero = (): JSX.Element => {
     <div className="hero-section">
       <div className="hero-content">
         <h1 className="hero-section__content__title">
-          Welcome to Our <span className="l3-text">{metaData.title}</span>
+          Welcome to Our <span className="text-p">{metaData.title}</span>
         </h1>
         <h4 className="hero-section-descr">{heroData.description}</h4>
       </div>

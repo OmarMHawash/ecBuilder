@@ -26,23 +26,36 @@ const StyledLayout = (): JSX.Element => {
   }
 
   const GlobalStyle = createGlobalStyle`
-  body {
+  .back, body{
     background-color: ${paletteVal.back};
   }
-  button,input,textarea,select{
+  .text-b{
+    color: ${paletteVal.back};
+  }
+  .prim, footer, header, tbody{
     background-color: ${paletteVal.prim};
   }
-  .l2-back{
-    background-color: ${paletteVal.prim};
+  .text-p{
+    color: ${paletteVal.prim};
   }
-  .l3-back,header,footer{
+  .secd, section, table, aside, thead, input, textarea, select, button, {
     background-color: ${paletteVal.secd};
   }
-  .l3-text{
+  .text-s{
     color: ${paletteVal.secd};
   }
-  h1,h2,h3,h4,h5,h6,p,label,a{
+  .text{
+    background-color: ${paletteVal.text};
+  }
+  .text-t, h1, h2, h3, h4, h5, h6, p, li, label, pre{
     color: ${paletteVal.text};
+  }
+  .text-a{
+    color: ${paletteVal.accn};
+  }
+  .accn, a:hover{
+    color: ${paletteVal.accn};
+    background-color: ${paletteVal.text}10;
   }
 `
   return (

@@ -11,6 +11,7 @@ const UpdateStyles = (): JSX.Element => {
   const [ec2, setEc2] = useState('')
   const [ec3, setEc3] = useState('')
   const [ec4, setEc4] = useState('')
+  const [ec5, setEc5] = useState('')
   const { setPalette } = useContext(paletteContext)
 
   useEffect(() => {
@@ -22,6 +23,7 @@ const UpdateStyles = (): JSX.Element => {
     setEc2(obj.prim)
     setEc3(obj.secd)
     setEc4(obj.text)
+    setEc5(obj.accn)
   }
   const updateStyles = (e: any): void => {
     e.preventDefault()
@@ -30,7 +32,7 @@ const UpdateStyles = (): JSX.Element => {
       prim: ec2,
       secd: ec3,
       text: ec4,
-      accn: paletteDefaults.accn,
+      accn: ec5,
     }
     console.log('updated:', styleObj)
     setPalette(styleObj)
@@ -55,11 +57,13 @@ const UpdateStyles = (): JSX.Element => {
   }
 
   return (
-    <div className="update-form l2-back">
-      <h2>Update Styles</h2>
+    <div className="update-form">
       <form>
         <div className="input-feild">
-          <label htmlFor="ec1">#1 Color</label>
+          <div className="label-wrapper">
+            <div className="color-circle back"> </div>
+            <label htmlFor="back">Background</label>
+          </div>
           <input
             type="text"
             name="ec1"
@@ -71,7 +75,10 @@ const UpdateStyles = (): JSX.Element => {
           />
         </div>
         <div className="input-feild">
-          <label htmlFor="prim">#2 Color</label>
+          <div className="label-wrapper">
+            <div className="color-circle prim"> </div>
+            <label htmlFor="prim">Primary</label>
+          </div>
           <input
             type="text"
             name="prim"
@@ -83,7 +90,10 @@ const UpdateStyles = (): JSX.Element => {
           />
         </div>
         <div className="input-feild">
-          <label htmlFor="secd">#3 Color</label>
+          <div className="label-wrapper">
+            <div className="color-circle secd"> </div>
+            <label htmlFor="secd">Secondary</label>
+          </div>
           <input
             type="text"
             name="secd"
@@ -95,7 +105,10 @@ const UpdateStyles = (): JSX.Element => {
           />
         </div>
         <div className="input-feild">
-          <label htmlFor="text">#4 Color</label>
+          <div className="label-wrapper">
+            <div className="color-circle text"> </div>
+            <label htmlFor="text">Text</label>
+          </div>
           <input
             type="text"
             name="text"
@@ -106,12 +119,29 @@ const UpdateStyles = (): JSX.Element => {
             }}
           />
         </div>
+        <div className="input-feild">
+          <div className="label-wrapper">
+            <div className="color-circle accn"> </div>
+            <label htmlFor="accn">Accent</label>
+          </div>
+          <input
+            type="text"
+            name="accn"
+            id="accn"
+            value={ec5}
+            onChange={(e) => {
+              setEc5(e.target.value)
+            }}
+          />
+        </div>
         <div className="action-buttons">
           <div onClick={updateStyles}>
-            <Button variant="outline">UPDATE</Button>
+            <button type="submit" onSubmit={updateStyles}>
+              Update
+            </button>
           </div>
           <div onClick={resetStyles}>
-            <Button title="default">get Defaults </Button>
+            <Button title="default">Defaults</Button>
           </div>
         </div>
       </form>

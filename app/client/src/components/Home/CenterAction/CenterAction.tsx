@@ -11,7 +11,7 @@ const CenterAction = (props: any): JSX.Element => {
   }
 
   return (
-    <div className="center-action l2-back">
+    <div className="center-action prim">
       <div className="action-form">
         <h1>Center Action</h1>
         <br />
