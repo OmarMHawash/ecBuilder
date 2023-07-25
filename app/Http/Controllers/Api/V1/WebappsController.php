@@ -73,7 +73,7 @@ class WebappsController extends Controller
 
     public function download()
     {
-        $url = base_path() . Storage::url('text.txt');
-        return response()->download($url, 'text.txt', ['Content-Type' => 'text/plain']);
+        $url = base_path() . Storage::url('webapps/zipped/default_app.zip');
+        return response()->download($url, 'my_project.zip', ['Content-Type' => 'application/zip']);
     }
 }
