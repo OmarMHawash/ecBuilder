@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Palette;
 use Illuminate\Http\Request;
 
+require_once base_path() . '/helpers/scripts/replacers.php';
+require_once base_path() . '/helpers/scripts/execs.php';
+
 class PalettesController extends Controller
 {
     /**
@@ -43,7 +46,15 @@ class PalettesController extends Controller
     {
         //
         $palette = Palette::find($id);
-        return response()->json($palette, 200, ['Content-Type' => 'application/json']);
+
+        $webapps_base = '\storage\webapps';
+        copy_folder($webapps_base, $palette->id);
+        zip_folder($palette->id);
+
+        $result = replace_palette($palette, $palette->id);
+
+        dd($result);
+        // return response()->json($palette, 200, ['Content-Type' => 'application/json']);
     }
 
     /**
