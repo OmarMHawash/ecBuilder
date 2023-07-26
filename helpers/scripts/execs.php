@@ -33,8 +33,15 @@ function zip_folder($folder_id)
   // $process->run();
   // dd($process->getOutput());
 
-  $process = Process::fromShellCommandline($zip7_cm);
-  dd($process->run());
+  $output = [];
+  $command = 'powershell.exe -Command "' . $zip7_cm . '"';
+  exec($command, $output);
+
+  // Output will contain the result of the PowerShell command
+  dd($output);
+
+  // $process = Process::fromShellCommandline($zip7_cm);
+  // dd($process->run());
 }
 
 
