@@ -18,7 +18,7 @@ function replace_in_file($file_path, $find_regex, $replace_with): bool
 
 function replace_palette($replace_values, $folder_id)
 {
-  $file_path = base_path() . '\storage\webapps\webapp_' . $folder_id . '\src\App.scss';
+  $file_path = base_path() . '/storage/webapps/webapp_' . $folder_id . '/src/App.scss';
   $file_content = file_get_contents($file_path);
 
   $back = '/back_p:.*/i';

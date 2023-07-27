@@ -47,7 +47,7 @@ class PalettesController extends Controller
         //
         $palette = Palette::find($id);
 
-        $webapps_base = '\storage\webapps';
+        $webapps_base = '/storage/webapps';
         copy_folder($webapps_base, $palette->id);
         zip_folder($palette->id);
 

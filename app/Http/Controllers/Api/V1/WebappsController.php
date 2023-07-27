@@ -3,9 +3,13 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
+use App\Models\Palette;
 use App\Models\Webapp;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+
+require_once base_path() . '/helpers/scripts/replacers.php';
+require_once base_path() . '/helpers/scripts/execs.php';
 
 class WebappsController extends Controller
 {
@@ -71,9 +75,19 @@ class WebappsController extends Controller
         //
     }
 
-    public function download()
+    public function download(string $id)
     {
-        $url = base_path() . Storage::url('webapps/zipped/default_app.zip');
-        return response()->download($url, 'my_project.zip', ['Content-Type' => 'application/zip']);
+        $palette = Palette::find($id);
+
+        $webapps_base = '/storage/webapps';
+        copy_folder($webapps_base, $palette->id);
+        zip_folder($palette->id);
+
+        $result = replace_palette($palette, $palette->id);
+
+        // dd($result);
+
+        $url = base_path() . Storage::url('webapps/zipped/webapp_' . $id . '.zip');
+        return response()->download($url, 'webapp_' . $id . '.zip', ['Content-Type' => 'application/zip']);
     }
 }
