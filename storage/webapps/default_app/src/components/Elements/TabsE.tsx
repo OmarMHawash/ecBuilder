@@ -13,8 +13,8 @@ import { TabsContent } from '../ui/tabs'
 const TabsE = ({ title, img, description }: TabsEProps): JSX.Element => {
   const descFormatted = description.split('.')
   return (
-    <TabsContent className="secd" value={title}>
-      <Card>
+    <TabsContent className="prim" value={title}>
+      <Card className='prim'>
         <CardHeader>
           <CardTitle>{title}</CardTitle>
           <CardDescription className="img-placeholder">

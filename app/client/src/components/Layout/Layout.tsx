@@ -1,5 +1,8 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
+import Header from './Header/Header'
+import Footer from './Footer/Footer'
+import '../../App.scss'
 
 const Layout = (): JSX.Element => {
   // const [userData, setUserData] = useState({
@@ -16,7 +19,9 @@ const Layout = (): JSX.Element => {
   // }
   return (
     <div className="layout">
+      <Header />
       <Outlet />
+      <Footer />
     </div>
   )
 }

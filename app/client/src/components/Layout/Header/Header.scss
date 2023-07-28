@@ -1,8 +1,31 @@
-header {
-  border-bottom: 1px solid #e6e6e6;
+.app-header {
   height: 60px;
   top: 0;
-  width: 100%;
+  width: 85%;
+  margin: 0 auto;
   z-index: 1;
-  padding: 10px;
+  padding: 20px 0;
+}
+
+.header-wrapper {
+  display: flex;
+  justify-content: space-between;
+
+  .logo-name {
+    display: flex;
+    h4 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin-left: 10px;
+    }
+  }
+
+  .nav-section {
+    display: flex;
+    align-items: center;
+    h5 {
+      margin: 0 10px;
+      font-size: 1rem;
+    }
+  }
 }
