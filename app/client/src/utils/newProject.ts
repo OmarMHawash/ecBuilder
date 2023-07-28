@@ -18,15 +18,15 @@ export const headerData = {
   main_nav: [
     {
       name: 'Services',
-      href: '/services',
+      href: '#',
     },
     {
       name: 'About',
-      href: '/about',
+      href: '#',
     },
     {
       name: 'Contact',
-      href: '/contact',
+      href: '#',
     },
   ],
   more_nav: {
@@ -35,47 +35,47 @@ export const headerData = {
     list: [
       {
         title: 'Alert Dialog',
-        href: '/docs/primitives/alert-dialog',
+        href: '#',
         description: 'A modal dialog that interrupts',
       },
       {
         title: 'Hover Card',
-        href: '/docs/primitives/hover-card',
+        href: '#',
         description: 'For sighted users to preview',
       },
       {
         title: 'Progress',
-        href: '/docs/primitives/progress',
+        href: '#',
         description: 'Displays an indicator of progress With label',
       },
       {
         title: 'Scroll-area',
-        href: '/docs/primitives/scroll-area',
+        href: '#',
         description: 'Visually or semantically separates',
       },
       {
         title: 'Tabs',
-        href: '/docs/primitives/tabs',
+        href: '#',
         description: 'A set of layered sections ',
       },
       {
         title: 'Tooltip',
-        href: '/docs/primitives/tooltip',
+        href: '#',
         description: 'A popup that displays',
       },
     ],
   },
   action_nav: [
     {
-      name: 'Log In',
-      href: '/login',
+      name: 'Get Started',
+      href: '/quick-start',
     },
   ],
 }
 
 export const heroData = {
   description:
-    'This is a website that I built using React and TailwindCSS, with a little bit of TypeScript. I hope you enjoy.',
+    'This is a website that I built using React and TailwindCSS, with a little bit of TypeScript. I hope you enjoy.\n Now with label and value provided, indicator displays the percentage (e.g. 60%). ',
   img: 'https://www.helpfulhero.com/hs-fs/hubfs/Helpful-Hero/hero-imgs/webp/home-clean-6-example-compressed.webp?width=1200&height=741&name=home-clean-6-example-compressed.webp',
 }
 
@@ -108,22 +108,22 @@ export const cardsData = [
 
 export const featuresData = [
   {
-    img: 'https://chisellabs.com/glossary/wp-content/uploads/2021/06/What-are-Features.png',
-    title: 'Features',
+    img: 'https://miro.medium.com/v2/resize:fit:800/0*CBjisl422hUyLxiG.png',
+    title: 'Typescript',
     description:
-      'Our features are designed to be best in class, We have a dedicated team of experts working round the clock to ensure that you get the best experience possible. We are constantly adding new features to our platform to ensure that you have the best experience possible We are constantly adding new features to our platform to ensure that you have the best experience possible. We are constantly adding new features to our platform to ensure that you have the best experience possible We are constantly adding new features to our platform to ensure that you have the best experience possible We are constantly adding new features to our platform to ensure that you have the best experience possible We are constantly',
+      'Static Typing: One of the key advantages of using TypeScript with React is the ability to add static typing to your components and props. TypeScript allows you to define types for props, state, and other variables, making it easier to catch type-related errors during development, This feature enhances code predictability, maintainability, and helps prevent common bugs that might occur due to incorrect data types being passed between components. Enum and Union Types for Props: TypeScript enables you to use Enum and Union types to define a restricted set of values for props',
   },
   {
-    img: 'https://www.zohowebstatic.com/sites/zweb/images/crm/banner-bg-mob.jpeg',
-    title: 'Business',
+    img: 'https://shadcn.com/og.jpg',
+    title: 'UI-Kit',
     description:
-      "Your business is growing and you need a CRM that can keep up Zoho CRM is the most scalable CRM on the market, with a flexible architecture that allows you to customize it to your needs You can add new modules, fields, workflows, and more without any coding knowledge. And because it's cloud-based, you can access it from anywhere at any time. Plus, our team of experts will help you get started with training and support so you can start using it right away",
+      "Accessible and customizable components that you can copy and paste into your apps, Free and open-source Use this to build your own component library. These components are built using Radix UI and Tailwind CSS shadcn UI is a tool in the UI Components category of a tech stack. shadcn UI is an open source tool with 12K GitHub stars and 437 GitHub forks Here’s a link to shadcn UI's open source repository on GitHubWho uses shadcn UI",
   },
   {
-    img: 'https://i0.wp.com/zenatta.com/wp-content/uploads/2023/01/automatically-assign-leads-workflow-fairly-zoho-crm.png?resize=752%2C461&ssl=1',
-    title: 'Workflows',
+    img: 'https://www.pngkit.com/png/full/506-5068804_adaptability-is-key-customizable-icon.png',
+    title: 'Customization',
     description:
-      "Zoho CRM is the only CRM that can automate workflows You can create custom workflows to automate your sales process, marketing campaigns, customer support tickets, and more. It's easy to set up and you'll be able to see results in no time. Plus, it's cloud-based so you can access it from anywhere at any time And with our team of experts on hand to help you get started, you'll be up and running in no time",
+      'They can rearrange elements such as headers, footers, navigation menus, widgets, and content sections without the need for technical expertise. This feature empowers users to create unique and visually appealing designs, enabling them to tailor the websites structure to their branding or content requirements. Website customization should provide options for selecting themes and color schemes. A customizable color scheme ensures that the websites visual presentation aligns with the organizations or individuals identity, fostering a consistent and professional appearance',
   },
 ]
 

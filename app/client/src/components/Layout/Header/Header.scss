@@ -13,6 +13,10 @@
 
   .logo-name {
     display: flex;
+    .img-wrapper {
+      font-size: 1.4rem;
+      filter: grayscale(0.6);
+    }
     h4 {
       font-size: 1.3rem;
       font-weight: 500;
@@ -24,8 +28,12 @@
     display: flex;
     align-items: center;
     h5 {
-      margin: 0 10px;
+      margin-right: 30px;
       font-size: 1rem;
+      font-weight: 500;
+      &:hover {
+        color: #6b8eff;
+      }
     }
   }
 }

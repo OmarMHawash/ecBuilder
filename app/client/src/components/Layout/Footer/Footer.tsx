@@ -18,6 +18,12 @@ const Footer = (): JSX.Element => {
           >
             In
           </a>
+          <a
+            href="
+            https://www.twitter.com/"
+          >
+            Tw
+          </a>
         </div>
       </div>
     </footer>

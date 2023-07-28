@@ -6,12 +6,12 @@ const Header = (): JSX.Element => {
   return (
     <header className="app-header">
       <div className="header-wrapper">
-        <div className="logo-name">
-          <div className="img-wrapper">
-            <img src="" alt="logo" />
+        <Link to="/">
+          <div className="logo-name">
+            <div className="img-wrapper">🧱</div>
+            <h4>ecBuilder</h4>
           </div>
-          <h4>ecBuilder</h4>
-        </div>
+        </Link>
         <div className="nav-section">
           <Link to="/features">
             <h5>Features</h5>

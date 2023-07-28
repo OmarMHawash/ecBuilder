@@ -6,19 +6,25 @@ import Components from './pages/Components'
 import { Builder } from './pages/Builder'
 import QuickStart from './pages/QuickStart'
 import Layout from './components/Layout/Layout'
+import Features from './pages/Features'
+import LayoutPanel from './components/Layout/LayoutPanel/LayoutPanel'
 function App(): JSX.Element {
   const appRef = useRef<HTMLDivElement>(null)
 
   return (
     <div className="app" ref={appRef}>
       <Routes>
+        <Route element={<LayoutPanel />}>
+          <Route path="/quick-start" element={<QuickStart />} />
+          <Route path="/project/:id" element={<Builder />} />
+        </Route>
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/quick-start" element={<QuickStart />} />
+          <Route path="/features" element={<Features />} />
         </Route>
         <Route element={<StyledLayout />}>
           <Route path="/demo" element={<Components />} />
-          <Route path="/builder" element={<Builder />} />
         </Route>
       </Routes>
     </div>

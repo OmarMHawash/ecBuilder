@@ -7,6 +7,7 @@ import Hero from '../components/Sections/Hero/Hero'
 import Tabbed from '../components/Sections/Tabbed/Tabbed'
 
 const Components = (): JSX.Element => {
+  document.title = 'Demo - Components'
   return (
     <div>
       <Header />
