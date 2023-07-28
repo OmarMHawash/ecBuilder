@@ -18,6 +18,10 @@ const UpdateStyles = (): JSX.Element => {
     fillInputs(paletteDefaults)
   }, [])
 
+  useEffect(() => {
+    updateStyles('effect')
+  }, [ec1, ec2, ec3, ec4, ec5])
+
   const fillInputs = (obj: Palette): void => {
     setEc1(obj.back)
     setEc2(obj.prim)
@@ -26,7 +30,7 @@ const UpdateStyles = (): JSX.Element => {
     setEc5(obj.accn)
   }
   const updateStyles = (e: any): void => {
-    e.preventDefault()
+    e !== "effect" && e.preventDefault()
     const styleObj = {
       back: ec1,
       prim: ec2,
@@ -136,9 +140,9 @@ const UpdateStyles = (): JSX.Element => {
         </div>
         <div className="action-buttons">
           <div onClick={updateStyles}>
-            <button type="submit" onSubmit={updateStyles}>
+            {/* <button type="submit" onSubmit={updateStyles}>
               Update
-            </button>
+            </button> */}
           </div>
           <div onClick={resetStyles}>
             <Button title="default">Defaults</Button>
