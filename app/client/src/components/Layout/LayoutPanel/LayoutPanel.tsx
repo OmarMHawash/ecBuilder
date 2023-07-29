@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, Outlet, useNavigate } from 'react-router-dom'
 import PanelHeader from '../PanelHeader/PanelHeader'
+import { Toaster } from '../../ui/toaster'
 
 import './LayoutPanel.scss'
 
@@ -16,16 +17,16 @@ const LayoutPanel = (): JSX.Element => {
           <div className="action-header">
             <Link
               to="/"
-              className="ml-2 toggleColour text-white no-underline hover:no-underline font-bold text-lg lg:text-2xl"
+              className="ml-4 toggleColour text-white no-underline hover:no-underline font-bold text-lg lg:text-2xl"
             >
-              Dashboard{' '}
+              Home
             </Link>
           </div>
           <div className="panel-list">
             <ul>
               <li>
-                <Link className="p-item" to="/">
-                  <h2>Home</h2>
+                <Link className="p-item" to="/quick-start">
+                  <h3>💡 Projects</h3>
                 </Link>
               </li>
             </ul>
@@ -38,6 +39,7 @@ const LayoutPanel = (): JSX.Element => {
       <div className="main-content">
         <PanelHeader />
         <Outlet />
+        <Toaster />
       </div>
     </div>
   )
