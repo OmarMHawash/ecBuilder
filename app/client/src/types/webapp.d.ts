@@ -5,6 +5,5 @@ export interface Webapp {
   description: string
   'mini-description': string
   palette_id: number
-  created_at: string
-  updated_at: string
+  components: Array<String>
 }

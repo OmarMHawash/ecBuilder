@@ -4,6 +4,7 @@ import { createGlobalStyle, ThemeProvider } from 'styled-components'
 import { paletteContext } from '../../contexts/PaletteContext'
 import type { PaletteContext } from '@/src/types/paletteContext'
 import type { Palette } from '@/src/types/palette'
+import type { User } from '@/src/types/user'
 
 const StyledLayout = (): JSX.Element => {
   const [paletteVal, setPaletteVal] = useState(
@@ -25,8 +26,29 @@ const StyledLayout = (): JSX.Element => {
     palette: paletteVal,
   }
 
+  const userObj: User = {
+    id: 1,
+    name: 'Demo user',
+    webapp: {
+      id: 1,
+      name: 'Demo webapp',
+      logo: 'https://via.placeholder.com/150',
+      description: 'This is a demo webapp',
+      'mini-description': 'Demo webapp',
+      palette_id: 1,
+      components: ['header_1', 'footer_1'],
+    },
+    palette: {
+      back: '#3AA6B9',
+      prim: '#FFD0D0',
+      secd: '#C1ECE4',
+      text: '#000000',
+      accn: '#a849d7aa',
+    },
+  }
+
   const GlobalStyle = createGlobalStyle`
-  .back, body{
+  .back, body,input,textarea,select{
     background-color: ${paletteVal.back};
   }
   .text-b{
@@ -38,7 +60,7 @@ const StyledLayout = (): JSX.Element => {
   .text-p{
     color: ${paletteVal.prim};
   }
-  .secd, section, table, aside, thead, input, textarea, select, button, {
+  .secd, section, table, aside, thead, textarea, select, button{
     background-color: ${paletteVal.secd};
   }
   .text-s{
@@ -59,7 +81,7 @@ const StyledLayout = (): JSX.Element => {
   }
 `
   return (
-    <paletteContext.Provider value={{ ...paletteObj }}>
+    <paletteContext.Provider value={{ ...paletteObj, ...userObj }}>
       <ThemeProvider theme={{ color: 'white' }}>
         <Outlet />
         {true && <GlobalStyle />}

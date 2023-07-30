@@ -8,7 +8,7 @@ import {
   SheetTrigger,
 } from '../ui/sheet'
 import { Button } from '../Elements/ButtonE'
-import { InputForm } from '../Forms/UserForm'
+import { InputForm } from '../Forms/WebappForm'
 
 const ProjectSheet = (): JSX.Element => {
   return (
@@ -20,8 +20,7 @@ const ProjectSheet = (): JSX.Element => {
         <SheetHeader>
           <SheetTitle>New Project</SheetTitle>
           <SheetDescription>
-            This action cannot be undone. This will permanently delete your
-            account and remove your data from our servers.
+            Add your project details below. You can always edit them later.
           </SheetDescription>
         </SheetHeader>
         <br />

@@ -5,18 +5,11 @@ import { useForm } from 'react-hook-form'
 import * as z from 'zod'
 
 import { Button } from '../ui/button'
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '../ui/form'
+import { Form, FormControl, FormField, FormItem, FormLabel } from '../ui/form'
 import { Input } from '../ui/input'
 import { toast } from '../ui/use-toast'
-
+import { post } from '../../utils/api'
+import { useNavigate } from 'react-router-dom'
 const FormSchema = z.object({
   name: z.string().min(4, {
     message: 'name must be at least 4 characters.',
@@ -24,22 +17,33 @@ const FormSchema = z.object({
   description: z.string().min(20, {
     message: 'description must be at least 20 characters.',
   }),
+  logo: z.string(),
 })
 
 export function InputForm() {
+  const navigate = useNavigate()
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
   })
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
     toast({
-      title: 'You submitted the following values:',
-      description: (
-        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(data, null, 2)}</code>
-        </pre>
-      ),
+      title: 'Creating project... 🚀',
     })
+    newProject(data)
+  }
+
+  const newProject = async (data: z.infer<typeof FormSchema>) => {
+    console.log(data)
+    post('/webapps', data)
+      .then((res) => {
+        console.log(res)
+        // todo: apply data to localstorage and context
+        navigate(`/project/${res.id}`)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
   }
 
   return (
@@ -52,7 +56,7 @@ export function InputForm() {
             <FormItem>
               <FormLabel>Name</FormLabel>
               <FormControl>
-                <Input placeholder="shadcn" {...field} />
+                <Input placeholder="my-project" {...field} />
               </FormControl>
             </FormItem>
           )}
@@ -64,14 +68,24 @@ export function InputForm() {
             <FormItem>
               <FormLabel>Description</FormLabel>
               <FormControl>
-                <Input placeholder="shadcn" {...field} />
+                <Input placeholder="write some desc here" {...field} />
               </FormControl>
             </FormItem>
           )}
         />
-        <FormDescription>This is your public display name.</FormDescription>
-        <FormMessage />
-        <Button type="submit">Submit</Button>
+        <FormField
+          control={form.control}
+          name="logo"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>App Logo</FormLabel>
+              <FormControl>
+                <Input placeholder="logo url" {...field} />
+              </FormControl>
+            </FormItem>
+          )}
+        />
+        <Button type="submit">Create</Button>
       </form>
     </Form>
   )
