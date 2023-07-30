@@ -16,8 +16,8 @@ function App(): JSX.Element {
       <Routes>
         <Route element={<LayoutPanel />}>
           <Route path="/quick-start" element={<QuickStart />} />
-          <Route path="/project/:id" element={<Builder />} />
         </Route>
+
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/quick-start" element={<QuickStart />} />
@@ -25,6 +25,7 @@ function App(): JSX.Element {
         </Route>
         <Route element={<StyledLayout />}>
           <Route path="/demo" element={<Components />} />
+          <Route path="/project/:id" element={<Builder />} />
         </Route>
       </Routes>
     </div>

@@ -1,1 +1,0 @@
-7z a -tzip C:\xampp\htdocs\ecBuilder\storage\webapps\zipped\webapp_1.zip C:\xampp\htdocs\ecBuilder\storage\webapps\webapp_1
