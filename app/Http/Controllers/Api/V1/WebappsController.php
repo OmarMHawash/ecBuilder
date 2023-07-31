@@ -77,15 +77,15 @@ class WebappsController extends Controller
 
     public function download(string $id)
     {
-        $palette = Palette::find($id);
+        $webapp = Webapp::find($id);
+        $palette = Palette::find($webapp->palette_id);
 
         $webapps_base = '/storage/webapps';
-        copy_folder($webapps_base, $palette->id);
-        zip_folder($palette->id);
+        copy_folder($webapps_base, $webapp->id);
+        $result = replace_palette($palette, $webapp->id);
 
-        $result = replace_palette($palette, $palette->id);
-
-        // dd($result);
+        zip_folder($webapp->id);
+        // dd($palette->id, $webapp->id, $result);
 
         $url = base_path() . Storage::url('webapps/zipped/webapp_' . $id . '.zip');
         return response()->download($url, 'webapp_' . $id . '.zip', ['Content-Type' => 'application/zip']);

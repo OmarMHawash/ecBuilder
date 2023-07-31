@@ -43,7 +43,7 @@ function zip_folder($folder_id)
   // dd($webapps_path, $source, $destination);
   // dd($zip_cm_2);
 
-  if ($webapps_path[1] === 'C') {
+  if ($webapps_path[0] === 'C') {
     $command = 'powershell.exe -Command "' . $zip7_cm . '"';
   } else {
     $command = $zip_cm_2;
@@ -51,7 +51,7 @@ function zip_folder($folder_id)
 
   $output = [];
   exec($command, $output);
-  // dd($output);
+  // dd($output, $webapps_path[0]);
 
   // $process = Process::fromShellCommandline($zip7_cm);
   // dd($process->run());
