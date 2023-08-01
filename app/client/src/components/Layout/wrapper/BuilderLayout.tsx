@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { Outlet } from 'react-router-dom'
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
-import { type PaletteContext, paletteContext } from '../../../contexts/paletteContext'
+import { type PaletteContext, paletteContext } from '../../../contexts/PaletteContext'
 import { userContext, type UserContext } from '../../../contexts/userContext'
 import type { Palette, User } from '@/src/types/types'
 import { Toaster } from '../../ui/toaster'

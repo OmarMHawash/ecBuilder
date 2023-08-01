@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import { Button } from '../../Elements/ButtonE'
 import { get } from '../../../utils/api'
 import type { Palette } from '@/src/types/types'
-import { paletteContext } from '../../../contexts/paletteContext'
+import { paletteContext } from '../../../contexts/PaletteContext'
 import { palette } from '../../../utils/defaults'
 import './UpdateStyles.scss'
 
