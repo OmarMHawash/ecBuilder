@@ -72,7 +72,10 @@ class WebappsController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // do it 
+        $webapp = Webapp::find($id);
+        $webapp->delete();
+        return response()->json(null, 204);
     }
 
     public function download(string $id)

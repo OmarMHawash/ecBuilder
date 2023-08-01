@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { paletteContext } from '../../../contexts/PaletteContext'
-import { paletteDefaults } from '../../../utils/defaults'
 import { Button } from '../../Elements/ButtonE'
 import { get } from '../../../utils/api'
-import type { Palette } from '@/src/types/palette'
+import type { Palette } from '@/src/types/types'
+import { paletteContext } from '../../../contexts/paletteContext'
+import { palette } from '../../../utils/defaults'
 import './UpdateStyles.scss'
 
 const UpdateStyles = (): JSX.Element => {
@@ -15,7 +15,7 @@ const UpdateStyles = (): JSX.Element => {
   const { setPalette } = useContext(paletteContext)
 
   useEffect(() => {
-    fillInputs(paletteDefaults)
+    fillInputs(palette)
   }, [])
 
   useEffect(() => {
@@ -30,7 +30,7 @@ const UpdateStyles = (): JSX.Element => {
     setEc5(obj.accn)
   }
   const updateStyles = (e: any): void => {
-    e !== "effect" && e.preventDefault()
+    e !== 'effect' && e.preventDefault()
     const styleObj = {
       back: ec1,
       prim: ec2,

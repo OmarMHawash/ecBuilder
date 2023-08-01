@@ -6,19 +6,32 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '../ui/dropdown-menu'
+import { toast } from '../ui/use-toast'
 import { Button } from '../Elements/ButtonE'
-import './Dropdown.scss'
 import { Link, useNavigate } from 'react-router-dom'
-import { get } from '../../utils/api'
+import { del } from '../../utils/api'
+import { Webapp } from '@/src/types/types'
 
-const WebAppDrop = ({ id }: WebAppDropProps): JSX.Element => {
+const WebAppDrop = (item: any): JSX.Element => {
   const navigate = useNavigate()
-
-  const deleteProject = async (id: number) => {
-    await get(`/webapps/${id}/delete`).then((res) => {
+  const webapp = item.webapp
+  const deleteProject = async (item: Webapp) => {
+    toast({
+      title: `Deleting ${item.name}... 🚀`,
+    })
+    console.log(item)
+    await del(`/webapps/${item.id}`).then((res) => {
       console.log(res)
       navigate('/quick-start')
     })
+  }
+  const downloadProject = async (item: Webapp) => {
+    toast({
+      title: `Downloading ${item.name}... 🚀`,
+    })
+    setTimeout(() => {
+      window.open(`http://localhost:8000/api/v1/webapps/${item.id}/download`, '_blank')
+    }, 3000)
   }
   return (
     <DropdownMenu>
@@ -26,28 +39,32 @@ const WebAppDrop = ({ id }: WebAppDropProps): JSX.Element => {
         <Button variant="ghost">⋮</Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="dropdown-list">
-        <Link to={`/projects/${id}`}>
+        <Link to={`/projects/${webapp.id}`}>
           <DropdownMenuItem>Edit</DropdownMenuItem>
         </Link>
         <div
           // @ts-ignore
           onClick={async () => {
-            await deleteProject(id)
+            await deleteProject(webapp)
             return 0
           }}
         >
           <DropdownMenuItem>delete</DropdownMenuItem>
         </div>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>Download</DropdownMenuItem>
+        <div
+          // @ts-ignore
+          onClick={async () => {
+            await downloadProject(webapp)
+            return 0
+          }}
+        >
+          <DropdownMenuItem>Download</DropdownMenuItem>
+        </div>
         <DropdownMenuItem>Share</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   )
-}
-
-interface WebAppDropProps {
-  id: number
 }
 
 export default WebAppDrop

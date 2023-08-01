@@ -22,3 +22,13 @@ export const post = async (url: string, data?: any): Promise<any> => {
   const res = await service.post(url, data)
   return res.data
 }
+
+export const put = async (url: string, data?: any): Promise<any> => {
+  const res = await service.put(url, data)
+  return res.data
+}
+
+export const del = async (url: string, data?: any): Promise<any> => {
+  const res = await service.delete(url, data)
+  return res.data
+}

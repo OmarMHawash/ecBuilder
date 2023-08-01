@@ -1,40 +1,61 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import { createGlobalStyle, ThemeProvider } from 'styled-components'
+import { paletteContext } from '../contexts/paletteContext'
 import Header from '../components/Sections/Header/Header'
 import Footer from '../components/Sections/Footer/Footer'
-import UpdateStyles from '../components/Home/UpdateStyles/UpdateStyles'
+import BuilderBar from '../components/Layout/Sidebar/BuilderBar/BuilderBar'
 
-export const Builder = (): JSX.Element => {
-  const [float, setFloat] = useState('float-l')
-  const [visi, setVisi] = useState('')
+const Builder = (): JSX.Element => {
+  const [paletteVal, setPaletteVal] = useState(useContext(paletteContext).palette)
+
+  const GlobalStyle = createGlobalStyle`
+  .back, body,input,textarea,select{
+    background-color: ${paletteVal.back};
+  }
+  .text-b{
+    color: ${paletteVal.back};
+  }
+  .prim, footer, header, tbody{
+    background-color: ${paletteVal.prim};
+  }
+  .text-p{
+    color: ${paletteVal.prim};
+  }
+  .secd, section, table, aside, thead, textarea, select, button{
+    background-color: ${paletteVal.secd};
+  }
+  .text-s{
+    color: ${paletteVal.secd};
+  }
+  .text{
+    background-color: ${paletteVal.text};
+  }
+  .text-t, h1, h2, h3, h4, h5, h6, p, li, label, pre{
+    color: ${paletteVal.text};
+  }
+  .text-a{
+    color: ${paletteVal.accn};
+  }
+  .accn, a:hover{
+    color: ${paletteVal.accn};
+    background-color: ${paletteVal.text}10;
+  }`
+
   return (
-    <div id="builder-section">
-      <div className={`webapp-data ${float} ${visi}`}>
-        <div className="webapp-data-wrapper"></div>
-        <div
-          className="floating-circle"
-          onClick={() => {
-            setFloat(float === 'float-l' ? 'float-r' : 'float-l')
-          }}
-        >
-          ↪️
+    <ThemeProvider theme={{ color: 'white' }}>
+      <div id="builder-section">
+        <div id="builder-sidebar">
+          <BuilderBar />
+        </div>
+        <div id="builder-content">
+          <Header />
+          <main></main>
+          <Footer />
         </div>
       </div>
-      <div
-        className="floating-circle-2 floating-circle"
-        onClick={() => {
-          setVisi(visi === '' ? 'hide' : '')
-        }}
-      >
-        ↩
-      </div>
-      <div className="builder-content">
-        <Header />
-        <main></main>
-        <Footer />
-      </div>
-      <div className={`${visi}`}>
-        <UpdateStyles />
-      </div>
-    </div>
+      {true && <GlobalStyle />}
+    </ThemeProvider>
   )
 }
+
+export default Builder

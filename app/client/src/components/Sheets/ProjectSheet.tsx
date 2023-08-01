@@ -24,11 +24,6 @@ const ProjectSheet = (): JSX.Element => {
           </SheetDescription>
         </SheetHeader>
         <br />
-        {/* <label htmlFor="name">Name</label>
-        <input type="text" name="name" id="name" /> <br />
-        <label htmlFor="logo">logo</label>
-        <input type="text" name="logo" id="logo" /> <br />
-        <input type="hidden" name="palette" id="palette" value={1} /> */}
         <InputForm />
       </SheetContent>
     </Sheet>

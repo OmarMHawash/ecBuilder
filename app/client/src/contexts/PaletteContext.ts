@@ -1,8 +1,12 @@
 import { createContext } from 'react'
-import type { PaletteContext } from '../types/paletteContext'
-import { paletteDefaults } from '../utils/defaults'
+import { palette } from '../utils/defaults'
+import type { Palette } from '../types/types'
+export interface PaletteContext {
+  palette: Palette
+  setPalette: (palette: Palette) => void
+}
 
 export const paletteContext = createContext<PaletteContext>({
-  palette: { ...paletteDefaults },
+  palette: { ...palette },
   setPalette: () => {},
 })

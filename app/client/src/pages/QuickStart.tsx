@@ -4,7 +4,7 @@ import CardE from '../components/Elements/CardE'
 // import { useToast } from '../components/ui/use-toast'
 import WebAppDrop from '../components/DropDowns/WebAppDrop'
 import { get } from '../utils/api'
-import type { Webapp } from '../types/webapp'
+import type { Webapp } from '../types/types'
 import ProjectSheet from '../components/Sheets/ProjectSheet'
 
 const QuickStart = (): JSX.Element => {
@@ -51,7 +51,7 @@ const QuickStart = (): JSX.Element => {
                   />
                 </Link>
                 <div className="dropd">
-                  <WebAppDrop id={item.id} />
+                  <WebAppDrop webapp={item} />
                 </div>
               </div>
             ))

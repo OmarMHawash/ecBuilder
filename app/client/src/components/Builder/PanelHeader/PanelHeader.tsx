@@ -1,17 +1,10 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import './PanelHeader.scss'
 
 import { useNavigate } from 'react-router-dom'
 const PanelHeader = (): JSX.Element => {
-  // const [loaded, setLoaded] = useState(false)
   const navigate = useNavigate()
 
-  useEffect(() => {
-    // setLoaded(true)
-  }, [])
-
-  // const loadUser = async () => {
-  // };
   return (
     <div className="panel-header">
       <div className="text-content">
