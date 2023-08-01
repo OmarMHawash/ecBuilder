@@ -30,8 +30,8 @@ const WebAppDrop = (item: any): JSX.Element => {
       title: `Downloading ${item.name}... 🚀`,
     })
     setTimeout(() => {
-      window.open(`http://localhost:8000/api/v1/webapps/${item.id}/download`, '_blank')
-    }, 3000)
+      window.open(`http://localhost:8000/api/v1/webapps/${item.id}/download`, 'Downloading blank')
+    }, 1000)
   }
   return (
     <DropdownMenu>

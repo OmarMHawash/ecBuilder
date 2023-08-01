@@ -7,7 +7,7 @@ import './Tabbed.scss'
 const Tabbed = (): JSX.Element => {
   return (
     <Tabs defaultValue={featuresData[0].title} className="tabbed-section">
-      <TabsList className="grid w-full grid-cols-3 prim">
+      <TabsList className="grid w-full grid-cols-3 secd">
         {featuresData.map((item) => (
           <TabsTrigger value={item.title} key={item.title.toString()}>
             {item.title}

@@ -1,20 +1,13 @@
 import React from 'react'
 import { Button } from '../ui/button'
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '../ui/card'
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '../ui/card'
 import { TabsContent } from '../ui/tabs'
 
 const TabsE = ({ title, img, description }: TabsEProps): JSX.Element => {
   const descFormatted = description.split('.')
   return (
-    <TabsContent className="prim " value={title}>
-      <Card className="prim pt-4">
+    <TabsContent value={title}>
+      <Card className="secd pt-4">
         <CardHeader>
           <CardTitle>{title}</CardTitle>
           <CardDescription className="img-placeholder">

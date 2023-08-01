@@ -1,14 +1,112 @@
-body {
-  background-color: aliceblue;
+:root {
+  --back_p: #faf3f0;
+  --back_pt: #dbdbdb50;
+  --prim_p: #8fb3ff;
+  --secd_p: #dbdbdb;
+  --text_p: #000000;
+  --accn_p: #4194db;
 }
+
 main {
-  height: 87vh;
+  min-height: 65vh;
+}
+h1 {
+  font-size: 3.5rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.6rem;
+}
+h4 {
+  font-size: 1.35rem;
+}
+h5 {
+  font-size: 1.15rem;
+}
+h6 {
+  font-style: italic;
+  font-size: 0.9rem;
+}
+p {
+  font-size: 1.1rem;
+}
+.wt-1 {
+  font-weight: 100;
+}
+.wt-5 {
+  font-weight: 500;
+}
+.wt-9 {
+  font-weight: 900;
+}
+
+.img-placeholder {
+  min-height: 300px;
+}
+
+.back,
+body {
+  background-color: var(--back_p);
+}
+.back-t {
+  background-color: var(--back_pt);
+}
+.text-b {
+  color: var(--back_p);
+}
+.prim,
+tbody,
+.footer-1 {
+  background-color: var(--prim_p);
+}
+.text-p {
+  color: var(--prim_p);
+}
+.secd,
+section,
+table,
+aside,
+thead,
+input,
+textarea,
+select,
+button,
+footer {
+  background-color: var(--secd_p);
+}
+.text-s {
+  color: var(--secd_p);
+}
+.text {
+  background-color: var(--text_p);
+}
+.text-t,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li,
+label,
+pre {
+  color: var(--text_p);
+}
+.text-a {
+  color: var(--accn_p);
+}
+.accn {
+  color: var(--accn_p);
+  background-color: var(--accn_p);
 }
 
 .home-wrapper {
   width: 85%;
   max-width: 600px;
-  margin: 0 auto;
+  margin: 35vh auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -21,7 +119,6 @@ main {
     font-weight: 700;
   }
   p {
-    font-size: 1.3rem;
     font-weight: 400;
     line-height: 1.5;
   }
@@ -33,42 +130,10 @@ main {
   }
 }
 
-.features-section {
+#features {
   max-width: 1000px;
-  margin: 60px auto 0 auto;
-}
-
-.projects-section {
-  padding: 30px;
-  .projects-header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    font-weight: 500;
-  }
-  .projects {
-    background-color: white;
-    border-radius: 10px;
-    min-height: 80vh;
-    .projects-wrapper {
-      display: flex;
-      padding: 20px;
-    }
-    .project-card {
-      width: 300px;
-      height: fit-content;
-      position: relative;
-      margin-right: 30px;
-      .card-wrapper > div {
-        min-height: 200px;
-      }
-      .dropd {
-        position: absolute;
-        bottom: 10px;
-        right: 10px;
-      }
-    }
-  }
+  margin: 0 auto;
+  padding: 60px 0;
 }
 
 .float-l {
@@ -85,4 +150,21 @@ main {
 
 .dropdown-list * {
   cursor: pointer;
+}
+
+.quick-start-wrapper {
+  display: flex;
+}
+
+.quick-start-content {
+  width: 100%;
+}
+
+.color-circle {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin: 0 auto;
+  margin-right: 5px;
+  border: 1px solid #00000050;
 }

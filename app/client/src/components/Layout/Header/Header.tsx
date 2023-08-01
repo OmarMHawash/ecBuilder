@@ -13,9 +13,9 @@ const Header = (): JSX.Element => {
           </div>
         </Link>
         <div className="nav-section">
-          <Link to="/features">
+          <a href="#features">
             <h5>Features</h5>
-          </Link>
+          </a>
           <Link to="/demo" target="_blank">
             <h5>Demo</h5>
           </Link>

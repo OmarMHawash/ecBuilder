@@ -10,7 +10,7 @@ const BuilderBar = () => {
       <div className={`webapp-data ${float} ${visi}`}>
         <div className="webapp-data-wrapper"></div>
         <div
-          className="floating-circle"
+          className="floating-circle fc-1"
           onClick={() => {
             setFloat(float === 'float-l' ? 'float-r' : 'float-l')
           }}
@@ -19,7 +19,7 @@ const BuilderBar = () => {
         </div>
       </div>
       <div
-        className="floating-circle-2 floating-circle"
+        className="floating-circle fc-2"
         onClick={() => {
           setVisi(visi === '' ? 'hide' : '')
         }}

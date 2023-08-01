@@ -52,8 +52,8 @@ body {
 }
 .prim,
 footer,
-header,
-tbody {
+tbody,
+.footer-1 {
   background-color: var(--prim_p);
 }
 .text-p {
@@ -92,8 +92,7 @@ pre {
 .text-a {
   color: var(--accn_p);
 }
-.accn,
-a:hover {
+.accn, .more-vav a::hover{
   color: var(--accn_p);
   background-color: var(--text_p);
 }

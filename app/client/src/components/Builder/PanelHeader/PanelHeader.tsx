@@ -8,7 +8,7 @@ const PanelHeader = (): JSX.Element => {
   return (
     <div className="panel-header">
       <div className="text-content">
-        <h1>Dashboard</h1>
+        <h4>Quick Start</h4>
       </div>
       <div
         onClick={() => {
@@ -20,7 +20,7 @@ const PanelHeader = (): JSX.Element => {
           src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"
           alt="profile-pic"
         />
-        <h3>Demo user</h3>
+        <h5>Demo user</h5>
       </div>
     </div>
   )

@@ -1,0 +1,33 @@
+.projects-section {
+  padding: 30px;
+  width: 100%;
+  .projects-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+  .projects {
+    background-color: white;
+    border-radius: 10px;
+    min-height: 80vh;
+    .projects-wrapper {
+      display: flex;
+      padding: 20px;
+    }
+    .project-card {
+      width: 300px;
+      height: fit-content;
+      position: relative;
+      margin-right: 30px;
+      .card-wrapper > div {
+        min-height: 200px;
+      }
+      .dropd {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+      }
+    }
+  }
+}

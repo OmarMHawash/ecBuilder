@@ -1,22 +1,9 @@
 import React from 'react'
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '../ui/card'
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '../ui/card'
 
-const CardE = ({
-  title,
-  desc,
-  content,
-  footer,
-  href,
-}: CardEProps): JSX.Element => {
+const CardE = ({ title, desc, content, footer, href }: CardEProps): JSX.Element => {
   return (
-    <Card className="secd">
+    <Card className="back-t">
       <CardContent>
         <img src={content} alt="content-img" />
       </CardContent>

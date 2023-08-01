@@ -13,14 +13,17 @@
 
   .logo-name {
     display: flex;
+    align-items: center;
+
     .img-wrapper {
-      font-size: 1.4rem;
       filter: grayscale(0.6);
+      padding-top: 1px;
+      font-size: 1.3rem;
     }
     h4 {
-      font-size: 1.3rem;
       font-weight: 500;
       margin-left: 10px;
+      text-align: center;
     }
   }
 
@@ -29,7 +32,6 @@
     align-items: center;
     h5 {
       margin-right: 30px;
-      font-size: 1rem;
       font-weight: 500;
       &:hover {
         color: #6b8eff;

@@ -2,8 +2,8 @@
   width: 100%;
   display: flex;
   margin: 0px auto 0px auto;
-  padding: 152px 0;
-  height: 80vh;
+  padding: 180px 0;
+  height: 90vh;
   .hero-content {
     width: 50%;
     padding: 30px 105px;
@@ -15,8 +15,5 @@
   }
   .hero-image {
     width: 45%;
-    img {
-      max-height: 45vh;
-    }
   }
 }

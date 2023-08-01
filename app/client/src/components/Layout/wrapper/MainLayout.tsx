@@ -7,7 +7,9 @@ const HomeLayout = (): JSX.Element => {
   return (
     <div className="layout">
       <Header />
-      <Outlet />
+      <main className="app-main">
+        <Outlet />
+      </main>
       <Footer />
     </div>
   )

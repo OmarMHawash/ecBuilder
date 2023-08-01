@@ -38,7 +38,6 @@ const UpdateStyles = (): JSX.Element => {
       text: ec4,
       accn: ec5,
     }
-    console.log('updated:', styleObj)
     setPalette(styleObj)
   }
 
@@ -54,7 +53,6 @@ const UpdateStyles = (): JSX.Element => {
         text: res[0].text,
         accn: res[0].accent,
       }
-      // console.log(styleObj)
       setPalette(styleObj)
       fillInputs(styleObj)
     })

@@ -33,11 +33,46 @@ const BuilderLayout = (): JSX.Element => {
     },
   }
 
+  const GlobalStyle = createGlobalStyle`
+  .back, body{
+    background-color: ${paletteVal.back};
+  }
+  .text-b {
+    color: ${paletteVal.back};
+  }
+  .prim, footer, header, tbody {
+    background-color: ${paletteVal.prim};
+  }
+  .text-p {
+    color: ${paletteVal.prim};
+  }
+  .secd, section, table, aside, thead, textarea, select, button {
+    background-color: ${paletteVal.secd};
+  }
+  .text-s {
+    color: ${paletteVal.secd};
+  }
+  .text {
+    background-color: ${paletteVal.text};
+  }
+  .text-t, h1, h2, h3, h4, h5, h6, p, li, label, pre {
+    color: ${paletteVal.text};
+  }
+  .text-a {
+    color: ${paletteVal.accn};
+  }
+  .accn, a:hover {
+    color: ${paletteVal.accn};
+    background-color: ${paletteVal.accn}10;
+  }`
+
   return (
     <paletteContext.Provider value={{ ...paletteObj, ...userObj }}>
-      {/* <ActionBar /> */}
-      <Outlet />
-      <Toaster />
+      <ThemeProvider theme={{ color: 'white' }}>
+        <Outlet />
+        <Toaster />
+      </ThemeProvider>
+      {true && <GlobalStyle />}
     </paletteContext.Provider>
   )
 }

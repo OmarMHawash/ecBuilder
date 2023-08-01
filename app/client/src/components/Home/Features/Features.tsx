@@ -1,9 +1,9 @@
 import React from 'react'
-import Tabbed from '../components/Sections/Tabbed/Tabbed'
+import Tabbed from '../../Sections/Tabbed/Tabbed'
 
 const Features = (): JSX.Element => {
   return (
-    <div className='features-section'>
+    <div id="features">
       <Tabbed />
     </div>
   )

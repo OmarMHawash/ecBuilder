@@ -15,20 +15,15 @@ const NavMenu = (): JSX.Element => {
       <NavigationMenu>
         <NavigationMenuList>
           {headerData.main_nav.map((item) => (
-            <NavigationMenuItem
-              key={item.name.toString()}
-              className="header-item"
-            >
+            <NavigationMenuItem key={item.name.toString()} className="header-item">
               <a href={item.href}>
                 <div className="text-sm wt-5">{item.name}</div>
               </a>
             </NavigationMenuItem>
           ))}
           {headerData.more_nav.enabled && (
-            <NavigationMenuItem>
-              <NavigationMenuTrigger>
-                {headerData.more_nav.name}
-              </NavigationMenuTrigger>
+            <NavigationMenuItem className="more-nav">
+              <NavigationMenuTrigger>{headerData.more_nav.name}</NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
                   {headerData.more_nav.list.map((component) => (

@@ -25,7 +25,7 @@ const NavMenu = (): JSX.Element => {
             </NavigationMenuItem>
           ))}
           {headerData.more_nav.enabled && (
-            <NavigationMenuItem>
+            <NavigationMenuItem className="more-nav">
               <NavigationMenuTrigger>
                 {headerData.more_nav.name}
               </NavigationMenuTrigger>
