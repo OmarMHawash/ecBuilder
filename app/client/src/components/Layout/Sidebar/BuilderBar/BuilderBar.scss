@@ -29,3 +29,15 @@
   bottom: 65px;
   filter: grayscale(0.8);
 }
+
+.builder-header {
+  position: fixed;
+  top: 0;
+  left: 50vw;
+  width: 100px;
+  padding: 5px;
+  border-radius: 0 0 5px 5px;
+  background-color: rgba(219, 219, 219, 0.8588235294);
+  display: flex;
+  justify-content: space-evenly;
+}

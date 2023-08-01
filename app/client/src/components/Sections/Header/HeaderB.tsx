@@ -2,7 +2,8 @@ import React from 'react'
 import { Button } from '../../Elements/ButtonE'
 import { Link } from 'react-router-dom'
 import './Header.scss'
-const Header = (): JSX.Element => {
+
+const HeaderB = (): JSX.Element => {
   return (
     <header className="app-header">
       <div className="header-wrapper">
@@ -28,4 +29,4 @@ const Header = (): JSX.Element => {
   )
 }
 
-export default Header
+export default HeaderB

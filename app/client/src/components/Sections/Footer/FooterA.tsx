@@ -3,9 +3,9 @@ import SeperatorE from '../../Elements/SeperatorE'
 import { headerData, metaData, socialsData } from '../../../utils/newProject'
 import './Footer.scss'
 
-const Footer = (): JSX.Element => {
+const FooterA = (): JSX.Element => {
   return (
-    <footer className="footer">
+    <footer className="footer-a">
       <div className="upper-footer">
         <div className="quick-nav">
           <ul>
@@ -26,11 +26,7 @@ const Footer = (): JSX.Element => {
           </ul>
         </div>
         <div className="seperator-wrapper">
-          <SeperatorE
-            title={metaData.title}
-            desc={metaData.mini_desc}
-            socials={socialsData}
-          />
+          <SeperatorE title={metaData.title} desc={metaData.mini_desc} socials={socialsData} />
         </div>
       </div>
       <div className="lower-footer">
@@ -43,4 +39,4 @@ const Footer = (): JSX.Element => {
   )
 }
 
-export default Footer
+export default FooterA

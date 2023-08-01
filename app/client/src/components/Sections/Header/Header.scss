@@ -1,4 +1,4 @@
-.header {
+.header-a {
   height: 60px;
   width: 100%;
   border-bottom: 1px solid #ccccccaa;
@@ -25,25 +25,65 @@
       }
     }
   }
-}
+  .nav-logo {
+    height: 61px;
+    width: 61px;
+    margin-right: 10px;
+  }
 
-.nav-logo {
-  height: 61px;
-  width: 61px;
-  margin-right: 10px;
-}
+  .item-list {
+    display: flex;
+    flex-direction: row;
+    .list-item {
+      margin: 0;
+      padding: 0;
+    }
+  }
 
-.item-list {
-  display: flex;
-  flex-direction: row;
-  .list-item {
-    margin: 0;
-    padding: 0;
+  .nav-menu {
+    .header-item {
+      padding: 0 10px;
+    }
   }
 }
 
-.nav-menu {
-  .header-item {
-    padding: 0 10px;
+.app-header {
+  height: 60px;
+  top: 0;
+  width: 85%;
+  margin: 0 auto;
+  z-index: 1;
+  padding: 20px 0;
+  .header-wrapper {
+    display: flex;
+    justify-content: space-between;
+
+    .logo-name {
+      display: flex;
+      align-items: center;
+
+      .img-wrapper {
+        filter: grayscale(0.6);
+        padding-top: 1px;
+        font-size: 1.3rem;
+      }
+      h4 {
+        font-weight: 500;
+        margin-left: 10px;
+        text-align: center;
+      }
+    }
+
+    .nav-section {
+      display: flex;
+      align-items: center;
+      h5 {
+        margin-right: 30px;
+        font-weight: 500;
+        &:hover {
+          color: #6b8eff;
+        }
+      }
+    }
   }
 }

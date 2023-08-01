@@ -1,8 +1,8 @@
 import React from 'react'
 import Cards from '../components/Sections/Cards/Cards'
 import Accordions from '../components/Sections/Accordions/Accordions'
-import Header from '../components/Sections/Header/Header'
-import Footer from '../components/Sections/Footer/Footer'
+import HeaderA from '../components/Sections/Header/HeaderA'
+import FooterA from '../components/Sections/Footer/FooterA'
 import Hero from '../components/Sections/Hero/Hero'
 import Tabbed from '../components/Sections/Tabbed/Tabbed'
 
@@ -10,12 +10,12 @@ const Components = (): JSX.Element => {
   document.title = 'Demo - Components'
   return (
     <div>
-      <Header />
+      <HeaderA />
       <Hero />
       <Cards />
       <Tabbed />
       <Accordions />
-      <Footer />
+      <FooterA />
     </div>
   )
 }

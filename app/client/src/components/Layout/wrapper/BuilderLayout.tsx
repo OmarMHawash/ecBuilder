@@ -19,18 +19,17 @@ const BuilderLayout = (): JSX.Element => {
         text: pal.text !== '' ? pal.text : paletteVal.text,
         accn: pal.accn !== '' ? pal.accn : paletteVal.accn,
       }
-      console.log('StyledLayout ~ newPal:', newPal)
       setPaletteVal(newPal)
     },
     palette: paletteVal,
   }
 
   const userObj: UserContext = {
-    user: userVal,
     setUser: (user: User) => {
       console.log('StyledLayout ~ user:', user)
       setUserVal(user)
     },
+    user: userVal,
   }
 
   const GlobalStyle = createGlobalStyle`
@@ -40,7 +39,7 @@ const BuilderLayout = (): JSX.Element => {
   .text-b {
     color: ${paletteVal.back};
   }
-  .prim, footer, header, tbody {
+  .prim, footer, tbody {
     background-color: ${paletteVal.prim};
   }
   .text-p {
@@ -67,12 +66,14 @@ const BuilderLayout = (): JSX.Element => {
   }`
 
   return (
-    <paletteContext.Provider value={{ ...paletteObj, ...userObj }}>
-      <ThemeProvider theme={{ color: 'white' }}>
-        <Outlet />
-        <Toaster />
-      </ThemeProvider>
-      {true && <GlobalStyle />}
+    <paletteContext.Provider value={{ ...paletteObj }}>
+      <userContext.Provider value={{ ...userObj }}>
+        <ThemeProvider theme={{ color: 'white' }}>
+          <Outlet />
+          <Toaster />
+        </ThemeProvider>
+        {true && <GlobalStyle />}
+      </userContext.Provider>
     </paletteContext.Provider>
   )
 }

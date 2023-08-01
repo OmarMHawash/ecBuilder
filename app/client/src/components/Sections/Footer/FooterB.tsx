@@ -1,6 +1,6 @@
 import React from 'react'
 import './Footer.scss'
-const Footer = (): JSX.Element => {
+const FooterB = (): JSX.Element => {
   return (
     <footer className="app-footer">
       <div className="footer-wrapper">
@@ -30,4 +30,4 @@ const Footer = (): JSX.Element => {
   )
 }
 
-export default Footer
+export default FooterB

@@ -8,7 +8,7 @@ export interface Palette {
 
 export interface User {
   metaData: object
-  components: Array<String>
+  components: Array<Component>
 }
 
 export interface Webapp {
@@ -18,4 +18,11 @@ export interface Webapp {
   description: string
   'mini-description': string
   palette_id: number
+}
+
+export interface Component {
+  name: string
+  Value: any
+  visible: boolean
+  kind: string
 }

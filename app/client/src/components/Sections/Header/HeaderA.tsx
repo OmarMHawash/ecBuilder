@@ -5,9 +5,9 @@ import NavMenu from './NavMenu'
 import { Link } from 'react-router-dom'
 import './Header.scss'
 
-const Header = (): JSX.Element => {
+const HeaderA = (): JSX.Element => {
   return (
-    <header className="header">
+    <header className="header-a prim">
       <div className="header-wrapper">
         <div className="header-logo-nav">
           <div className="header-logo">
@@ -29,4 +29,4 @@ const Header = (): JSX.Element => {
   )
 }
 
-export default Header
+export default HeaderA

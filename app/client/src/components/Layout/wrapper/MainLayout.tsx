@@ -1,16 +1,16 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import Header from '../Header/Header'
-import Footer from '../Footer/Footer'
+import HeaderB from '../../Sections/Header/HeaderB'
+import FooterB from '../../Sections/Footer/FooterB'
 
 const HomeLayout = (): JSX.Element => {
   return (
     <div className="layout">
-      <Header />
+      <HeaderB />
       <main className="app-main">
         <Outlet />
       </main>
-      <Footer />
+      <FooterB />
     </div>
   )
 }
