@@ -19,5 +19,6 @@ class Component extends Model
         'description',
         'path',
         'config',
+        'kind'
     ];
 }

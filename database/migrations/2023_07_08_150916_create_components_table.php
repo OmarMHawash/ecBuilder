@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('components', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique()->require();
+            $table->string('kind')->require();
             $table->string('description', 1000)->nullable();
             $table->string('path')->unique()->require();
             $table->string('config')->nullable();

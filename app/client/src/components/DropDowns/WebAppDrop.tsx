@@ -39,7 +39,7 @@ const WebAppDrop = (item: any): JSX.Element => {
         <Button variant="ghost">⋮</Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="dropdown-list">
-        <Link to={`/projects/${webapp.id}`}>
+        <Link to={`/project/${webapp.id}`}>
           <DropdownMenuItem>Edit</DropdownMenuItem>
         </Link>
         <div

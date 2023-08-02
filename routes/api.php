@@ -20,4 +20,5 @@ Route::group(['prefix' => 'v1'], function () {
     Route::apiResource('users_webapps', UsersWebappsController::class);
 
     Route::get('webapps/{id}/download', [WebappsController::class, 'download']);
+    Route::post('components/many', [ComponentsController::class, 'store_many']);
 });

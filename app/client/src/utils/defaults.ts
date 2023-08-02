@@ -1,9 +1,11 @@
 import Accordions from '../components/Sections/Accordions/Accordions'
+import Cards from '../components/Sections/Cards/Cards'
 import FooterA from '../components/Sections/Footer/FooterA'
 import FooterB from '../components/Sections/Footer/FooterB'
 import HeaderA from '../components/Sections/Header/HeaderA'
 import HeaderB from '../components/Sections/Header/HeaderB'
 import Hero from '../components/Sections/Hero/Hero'
+import Tabbed from '../components/Sections/Tabbed/Tabbed'
 
 import type { Palette, User } from '../types/types'
 import { metaData } from './newProject'
@@ -22,6 +24,8 @@ export const user: Pick<User, 'metaData' | 'components'> = {
     { name: 'headerA', Value: HeaderA, visible: false, kind: 'header' },
     { name: 'headerB', Value: HeaderB, visible: false, kind: 'header' },
     { name: 'hero', Value: Hero, visible: false, kind: 'section' },
+    { name: 'cards', Value: Cards, visible: false, kind: 'section' },
+    { name: 'tabbed', Value: Tabbed, visible: false, kind: 'section' },
     { name: 'accordions', Value: Accordions, visible: false, kind: 'section' },
     { name: 'footerA', Value: FooterA, visible: false, kind: 'footer' },
     { name: 'footerB', Value: FooterB, visible: false, kind: 'footer' },

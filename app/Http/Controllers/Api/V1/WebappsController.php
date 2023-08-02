@@ -38,7 +38,8 @@ class WebappsController extends Controller
     {
         //
         $webapp = Webapp::create($request->all());
-        return response()->json($webapp, 201, ['Content-Type' => 'application/json']);
+        echo $webapp;
+        // return response()->json($webapp, 201, ['Content-Type' => 'application/json']);
     }
 
     /**
@@ -88,7 +89,6 @@ class WebappsController extends Controller
         $result = replace_palette($palette, $webapp->id);
 
         zip_folder($webapp->id);
-        // dd($palette->id, $webapp->id, $result);
 
         $url = base_path() . Storage::url('webapps/zipped/webapp_' . $id . '.zip');
         return response()->download($url, 'webapp_' . $id . '.zip', ['Content-Type' => 'application/zip']);

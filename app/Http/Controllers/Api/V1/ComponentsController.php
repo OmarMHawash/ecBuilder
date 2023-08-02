@@ -15,12 +15,16 @@ class ComponentsController extends Controller
         return response()->json($components, 200, ['Content-Type' => 'application/json']);
     }
     /**
-     * Store a newly created resource in storage.
+     * Store many newly created resources in storage.
      */
-    public function store(StoreComponentRequest $request)
+    public function store_many(Request $request)
     {
-        $component = Component::create($request->validated());
-        return response()->json($component, 201, ['Content-Type' => 'application/json']);
+        $added = 0;
+        foreach ($request->all() as $component) {
+            Component::create($component);
+            $added++;
+        }
+        return response()->json(['added' => $added], 201, ['Content-Type' => 'application/json']);
     }
     /**
      * Show the form for creating a new resource.
