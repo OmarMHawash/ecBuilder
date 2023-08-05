@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
+use App\Models\ComponentWebapp;
 use App\Models\Palette;
 use App\Models\Webapp;
 use Illuminate\Http\Request;
@@ -24,22 +25,40 @@ class WebappsController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
         //
         $webapp = Webapp::create($request->all());
-        echo $webapp;
-        // return response()->json($webapp, 201, ['Content-Type' => 'application/json']);
+        $palette = Palette::create([
+            'name' => $webapp->name . '_' . $webapp->id,
+        ]);
+        $webapp->palette_id = $palette->id;
+        $webapp->save();
+        return response()->json($webapp, 201, ['Content-Type' => 'application/json']);
+    }
+
+    /**
+     * Stores the modified palette and components of the webapp.
+     */
+    public function store_config(Request $request)
+    {
+        //
+        $webapp = Webapp::find($request->webapp_id);
+        $palette = Palette::find($webapp->palette_id);
+        $palette->update($request->all());
+        $palette->save();
+        ComponentWebapp::where('webapp_id', $webapp->id)->delete();
+
+        foreach ($request->components as $new_app_component) {
+            ComponentWebapp::create([
+                'webapp_id' => $webapp->id,
+                'component_id' => $new_app_component['id'],
+            ]);
+        }
+
+        return response()->json($webapp, 201, ['Content-Type' => 'application/json']);
     }
 
     /**

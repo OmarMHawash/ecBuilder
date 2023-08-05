@@ -40,10 +40,10 @@ class ComponentsWebappsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show_web_comp(string $webapp_id)
     {
         //
-        $component_webapp = ComponentWebapp::find($id);
+        $component_webapp = ComponentWebapp::find($webapp_id);
         return response()->json($component_webapp, 200, ['Content-Type' => 'application/json']);
     }
 
