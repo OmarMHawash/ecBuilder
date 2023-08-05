@@ -1,0 +1,10 @@
+.palette-card > div {
+  min-height: 100px;
+  max-width: 100%;
+}
+
+.palettes {
+  display: grid;
+  grid-template-columns: auto;
+  gap: 15px;
+}

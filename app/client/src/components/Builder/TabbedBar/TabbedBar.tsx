@@ -2,7 +2,6 @@ import React, { useState, useContext } from 'react'
 import { userContext } from '../../../contexts/userContext'
 import { Button } from '../../Elements/ButtonE'
 import './TabbedBar.scss'
-import { post } from '../../../utils/api'
 
 const TabbedBar = (): JSX.Element => {
   const [headVis, setHeadVis] = useState('')
@@ -57,33 +56,13 @@ const TabbedBar = (): JSX.Element => {
     }
   }
 
-  const handleSave = () => {
-    console.log('save')
-    const postWebapps = user.components.map((item): any => {
-      let path =
-        '/src/components/Sections/' + item.name.charAt(0).toUpperCase() + item.name.slice(1)
-      return {
-        name: item.name,
-        kind: item.kind,
-        path: path,
-        description: item.name + ' description',
-        config: `${item.visible}`,
-      }
-    })
-    console.log('postWebapps', postWebapps)
-    post('components/many', postWebapps)
-      .then((res) => {
-        console.log('res', res)
-      })
-      .catch((err) => {
-        console.log('err', err.response.data.message)
-      })
-  }
+  const handleSave = () => {}
 
   return (
     <div className="tabbed-bar">
       <h3>Tabbed Bar</h3>
       <div className="selects">
+        <label htmlFor="header">Header </label>
         <select
           value={headVis}
           onChange={(e) => {
@@ -94,17 +73,7 @@ const TabbedBar = (): JSX.Element => {
           <option value="headerA">Header 1</option>
           <option value="headerB">Header 2</option>
         </select>
-        <select
-          value={footVis}
-          onChange={(e) => {
-            handleChange(e, 'footer')
-          }}
-        >
-          <option value="">Select</option>
-          <option value="footerA">Footer 1</option>
-          <option value="footerB">Footer 2</option>
-          {/* radio element */}
-        </select>
+
         <br />
         <input
           type="checkbox"
@@ -114,7 +83,8 @@ const TabbedBar = (): JSX.Element => {
             handleChange(e, 'hero')
           }}
         />
-        <label htmlFor="hero">hero</label>
+
+        <label htmlFor="hero"> hero</label>
         <br />
         <input
           type="checkbox"
@@ -124,7 +94,7 @@ const TabbedBar = (): JSX.Element => {
             handleChange(e, 'cards')
           }}
         />
-        <label htmlFor="cards">cards</label>
+        <label htmlFor="cards"> cards</label>
         <br />
         <input
           type="checkbox"
@@ -134,7 +104,7 @@ const TabbedBar = (): JSX.Element => {
             handleChange(e, 'tabbed')
           }}
         />
-        <label htmlFor="tabs">tabbed</label>
+        <label htmlFor="tabs"> tabbed</label>
         <br />
         <input
           type="checkbox"
@@ -144,10 +114,21 @@ const TabbedBar = (): JSX.Element => {
             handleChange(e, 'accordions')
           }}
         />
-        <label htmlFor="accordion">accordions</label>
+        <label htmlFor="accordion"> accordions</label>
         <br />
       </div>
-
+      <label htmlFor="footer">Footer </label>
+      <select
+        value={footVis}
+        onChange={(e) => {
+          handleChange(e, 'footer')
+        }}
+      >
+        <option value="">Select</option>
+        <option value="footerA">Footer 1</option>
+        <option value="footerB">Footer 2</option>
+        {/* radio element */}
+      </select>
       <div className="buttons">
         <Button onClick={handleSave} variant="secondary">
           save

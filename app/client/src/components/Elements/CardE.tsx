@@ -5,7 +5,7 @@ const CardE = ({ title, desc, content, footer, href }: CardEProps): JSX.Element 
   return (
     <Card className="back-t">
       <CardContent>
-        <img src={content} alt="content-img" />
+        <img src={content} alt="" />
       </CardContent>
       <CardHeader>
         <CardTitle>{title}</CardTitle>

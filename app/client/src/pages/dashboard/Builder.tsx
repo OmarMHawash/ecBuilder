@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
-import BuilderBar from '../components/Layout/Sidebar/BuilderBar/BuilderBar'
-import { userContext } from '../contexts/userContext'
+import BuilderBar from '../../components/Layout/Sidebar/BuilderBar/BuilderBar'
+import { userContext } from '../../contexts/userContext'
 
 const Builder = (): JSX.Element => {
   const [components, setComponents] = useState(useContext(userContext).user.components)

@@ -1,28 +1,26 @@
-.projects-section {
+.dashboard-section {
   padding: 30px;
   width: 100%;
-  .projects-header {
+  .dashboard-header {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
     font-weight: 500;
   }
-  .projects {
+  .dashboard {
     background-color: white;
     border-radius: 10px;
-    min-height: 80vh;
-    .projects-wrapper {
-      display: flex;
+    min-height: 78vh;
+    .dashboard-wrapper {
       padding: 20px;
     }
-    .project-card {
+    .dashboard-card {
       width: 300px;
       height: fit-content;
       position: relative;
       margin-right: 30px;
-      .card-wrapper > div {
-        min-height: 200px;
-      }
+      overflow-x: hidden;
+      overflow-y: hidden;
       .dropd {
         position: absolute;
         bottom: 10px;

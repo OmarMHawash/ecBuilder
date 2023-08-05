@@ -17,19 +17,34 @@ const ActionBar = () => {
           <ul>
             <li>
               <Link className="p-item" to="/quick-start">
-                <h5>! Projects</h5>
+                <h5>Projects</h5>
               </Link>
             </li>
             <li>
-              <Link className="p-item" to="/quick-start">
-                <h5>? Profile</h5>
+              <Link className="p-item" to="/palettes">
+                <h5>Palettes</h5>
+              </Link>
+            </li>
+            <li>
+              <Link className="p-item" to="/components">
+                <h5>Components</h5>
               </Link>
             </li>
           </ul>
         </div>
       </div>
       <div className="panel-bottom">
-        <button>Logout</button>
+        <ul>
+          <li>
+            <Link className="p-item" to="/website">
+              <h5>Config</h5>
+            </Link>
+          </li>
+        </ul>
+        <br />
+        <Link to="/">
+          <button>Back</button>
+        </Link>
       </div>
     </div>
   )

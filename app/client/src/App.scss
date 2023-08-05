@@ -115,7 +115,6 @@ pre {
   h1 {
     line-height: 3rem;
     margin-bottom: 20px;
-    color: blue;
     font-weight: 700;
   }
   p {
@@ -156,8 +155,10 @@ pre {
   display: flex;
 }
 
-.quick-start-content {
-  width: 100%;
+.quick-start {
+  .quick-start-content {
+    width: 100%;
+  }
 }
 
 .color-circle {

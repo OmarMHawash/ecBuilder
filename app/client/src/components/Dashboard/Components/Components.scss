@@ -1,0 +1,10 @@
+.comp-card > div {
+  min-height: 100px;
+  max-width: 200px;
+}
+
+.components {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 15px;
+}

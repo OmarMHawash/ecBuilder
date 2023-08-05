@@ -13,14 +13,6 @@ const BuilderBar = () => {
         <div className="webapp-data-wrapper">
           <TabbedBar />
         </div>
-        <div
-          className="floating-circle fc-1"
-          onClick={() => {
-            setFloat(float === 'float-l' ? 'float-r' : 'float-l')
-          }}
-        >
-          ↪️
-        </div>
         <div className="builder-header">
           <Link to="/">
             <h4>🧱</h4>
