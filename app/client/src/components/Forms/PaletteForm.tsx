@@ -14,13 +14,9 @@ const FormSchema = z.object({
   name: z.string().min(4, {
     message: 'name must be at least 4 characters.',
   }),
-  description: z.string().min(4, {
-    message: 'description must be at least 20 characters.',
-  }),
-  logo: z.string(),
 })
 
-export function InputForm() {
+export function PaletteForm() {
   const navigate = useNavigate()
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -28,18 +24,18 @@ export function InputForm() {
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
     toast({
-      title: 'Creating project... 🚀',
+      title: 'Creating palette... 🚀',
     })
-    newProject(data)
+    newPalette(data)
   }
 
-  const newProject = async (data: z.infer<typeof FormSchema>) => {
+  const newPalette = async (data: z.infer<typeof FormSchema>) => {
     console.log(data)
-    post('/webapps', data)
+    post('/palettes', data)
       .then((res) => {
         console.log(res)
         // todo: apply data to localstorage and context
-        navigate(`/project/${res.id}`)
+        navigate(`/quick-start`)
       })
       .catch((err) => {
         console.log(err)
@@ -56,31 +52,7 @@ export function InputForm() {
             <FormItem>
               <FormLabel>Name</FormLabel>
               <FormControl>
-                <Input placeholder="my-project" {...field} />
-              </FormControl>
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="description"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Description</FormLabel>
-              <FormControl>
-                <Input placeholder="write some desc here" {...field} />
-              </FormControl>
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="logo"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>App Logo</FormLabel>
-              <FormControl>
-                <Input placeholder="logo url" {...field} />
+                <Input placeholder="my-palette" {...field} />
               </FormControl>
             </FormItem>
           )}

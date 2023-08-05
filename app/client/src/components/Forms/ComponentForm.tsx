@@ -14,13 +14,15 @@ const FormSchema = z.object({
   name: z.string().min(4, {
     message: 'name must be at least 4 characters.',
   }),
-  description: z.string().min(4, {
-    message: 'description must be at least 20 characters.',
+  type: z.string().min(3, {
+    message: 'type must be at least 20 characters.',
   }),
-  logo: z.string(),
+  value: z.string().min(2, {
+    message: 'value must be at least 20 characters.',
+  }),
 })
 
-export function InputForm() {
+export function ComponentForm() {
   const navigate = useNavigate()
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -35,11 +37,11 @@ export function InputForm() {
 
   const newComponent = async (data: z.infer<typeof FormSchema>) => {
     console.log(data)
-    post('/webapps', data)
+    post('/components', data)
       .then((res) => {
         console.log(res)
         // todo: apply data to localstorage and context
-        navigate(`/component/${res.id}`)
+        navigate(`/quick-start`)
       })
       .catch((err) => {
         console.log(err)
@@ -63,24 +65,24 @@ export function InputForm() {
         />
         <FormField
           control={form.control}
-          name="description"
+          name="type"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Description</FormLabel>
+              <FormLabel>Type</FormLabel>
               <FormControl>
-                <Input placeholder="write some desc here" {...field} />
+                <Input placeholder="header" {...field} />
               </FormControl>
             </FormItem>
           )}
         />
         <FormField
           control={form.control}
-          name="logo"
+          name="value"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>App Logo</FormLabel>
+              <FormLabel>Component</FormLabel>
               <FormControl>
-                <Input placeholder="logo url" {...field} />
+                <Input placeholder="HeaderA" {...field} />
               </FormControl>
             </FormItem>
           )}

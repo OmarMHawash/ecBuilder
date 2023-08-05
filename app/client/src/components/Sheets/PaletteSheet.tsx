@@ -8,7 +8,7 @@ import {
   SheetTrigger,
 } from '../ui/sheet'
 import { Button } from '../Elements/ButtonE'
-import { InputForm } from '../Forms/PaletteForm'
+import { PaletteForm } from '../Forms/PaletteForm'
 
 const PaletteSheet = (): JSX.Element => {
   return (
@@ -24,7 +24,7 @@ const PaletteSheet = (): JSX.Element => {
           </SheetDescription>
         </SheetHeader>
         <br />
-        <InputForm />
+        <PaletteForm />
       </SheetContent>
     </Sheet>
   )
