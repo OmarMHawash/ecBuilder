@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
-use App\Models\ComponentWebapp;
+use App\Models\ComponentsWebapp;
 use Illuminate\Http\Request;
 
 class ComponentsWebappsController extends Controller
@@ -14,7 +14,7 @@ class ComponentsWebappsController extends Controller
     public function index()
     {
         //
-        $components_webapps = ComponentWebapp::all();
+        $components_webapps = ComponentsWebapp::all();
         return response()->json($components_webapps, 200, ['Content-Type' => 'application/json']);
     }
 
@@ -33,18 +33,18 @@ class ComponentsWebappsController extends Controller
     public function store(Request $request)
     {
         // do it
-        $component_webapp = ComponentWebapp::create($request->all());
-        return response()->json($component_webapp, 201, ['Content-Type' => 'application/json']);
+        $webapp_components = ComponentsWebapp::create($request->all());
+        return response()->json($webapp_components, 201, ['Content-Type' => 'application/json']);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show_web_comp(string $webapp_id)
+    public function show_web_comp(string $id)
     {
         //
-        $component_webapp = ComponentWebapp::find($webapp_id);
-        return response()->json($component_webapp, 200, ['Content-Type' => 'application/json']);
+        $webapp_components = ComponentsWebapp::where('webapp_id', $id)->get();
+        return response()->json($webapp_components, 200, ['Content-Type' => 'application/json']);
     }
 
     /**

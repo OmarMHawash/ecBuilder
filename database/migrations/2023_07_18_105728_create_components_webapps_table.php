@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('components_webapps', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('component_id');
-            $table->unsignedBigInteger('webapp_id');
             $table->foreign('component_id')->references('id')->on('components');
+            $table->unsignedBigInteger('webapp_id');
             $table->foreign('webapp_id')->references('id')->on('webapps');
             $table->timestamps();
         });

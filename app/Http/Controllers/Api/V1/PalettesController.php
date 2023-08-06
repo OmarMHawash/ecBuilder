@@ -21,20 +21,12 @@ class PalettesController extends Controller
         return response()->json($palettes, 200, ['Content-Type' => 'application/json']);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //
         $palette = Palette::create($request->all());
         return response()->json($palette, 201, ['Content-Type' => 'application/json']);
     }
@@ -44,25 +36,14 @@ class PalettesController extends Controller
      */
     public function show(string $id)
     {
-        //
         $palette = Palette::find($id);
-
-        $webapps_base = '/storage/webapps';
-        copy_folder($webapps_base, $palette->id);
-        zip_folder($palette->id);
-
-        $result = replace_palette($palette, $palette->id);
-
-        dd($result);
-        // return response()->json($palette, 200, ['Content-Type' => 'application/json']);
+        return response()->json($palette, 200, ['Content-Type' => 'application/json']);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function show_by_name(string $name)
     {
-        //
+        $palette = Palette::where('name', $name)->first();
+        return response()->json($palette, 200, ['Content-Type' => 'application/json']);
     }
 
     /**
@@ -70,7 +51,10 @@ class PalettesController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $palette = Palette::find($id);
+        $palette->update(request()->all());
+        $palette->save();
+        return response()->json($palette, 200, ['Content-Type' => 'application/json']);
     }
 
     /**
@@ -78,6 +62,8 @@ class PalettesController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $palette = Palette::find($id);
+        $palette->delete();
+        return response()->json("deleted", 202, ['Content-Type' => 'application/json']);
     }
 }

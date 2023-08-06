@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
-use App\Models\ComponentWebapp;
+use App\Models\ComponentsWebapp;
 use App\Models\Palette;
 use App\Models\Webapp;
 use Illuminate\Http\Request;
@@ -49,10 +49,10 @@ class WebappsController extends Controller
         $palette = Palette::find($webapp->palette_id);
         $palette->update($request->all());
         $palette->save();
-        ComponentWebapp::where('webapp_id', $webapp->id)->delete();
+        ComponentsWebapp::where('webapp_id', $webapp->id)->delete();
 
         foreach ($request->components as $new_app_component) {
-            ComponentWebapp::create([
+            ComponentsWebapp::create([
                 'webapp_id' => $webapp->id,
                 'component_id' => $new_app_component['id'],
             ]);
@@ -72,19 +72,15 @@ class WebappsController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
     {
         //
+        $webapp = Webapp::find($id);
+        $webapp->update($request->all());
+        $webapp->save();
+        return response()->json($webapp, 200, ['Content-Type' => 'application/json']);
     }
 
     /**
@@ -92,10 +88,9 @@ class WebappsController extends Controller
      */
     public function destroy(string $id)
     {
-        // do it 
         $webapp = Webapp::find($id);
         $webapp->delete();
-        return response()->json(null, 204);
+        return response()->json("deleted", 202, ['Content-Type' => 'application/json']);
     }
 
     public function download(string $id)
@@ -105,7 +100,7 @@ class WebappsController extends Controller
 
         $webapps_base = '/storage/webapps';
         copy_folder($webapps_base, $webapp->id);
-        $result = replace_palette($palette, $webapp->id);
+        replace_palette($palette, $webapp->id);
 
         zip_folder($webapp->id);
 

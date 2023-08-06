@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('webapps', function (Blueprint $table) {
             $table->id();
             $table->string('name')->default('my-project');
-            $table->string('description', 1000)->default('This is my project');
+            $table->string('description', 1000)->default('This is a full lemgth description for your project. make it good! my-project');
             $table->string('mini_description', 1000)->default('short description');
             $table->string('logo')->default('default_app_logo');
             $table->unsignedBigInteger('palette_id')->default(1);

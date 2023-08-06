@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('background')->require()->default('#ffffff');
             $table->string('primary')->require()->default('#8fb3ff');
             $table->string('secondary')->require()->default('#ebf1ff');;
-            $table->string('accent')->require()->default('#a849d7');
+            $table->string('accent')->require()->default('#a849d750');
             $table->timestamps();
         });
     }

@@ -24,14 +24,10 @@ class ComponentsController extends Controller
             Component::create($component);
             $added++;
         }
+        if ($added == 0) {
+            return response()->json("failed to add components", 400, ['Content-Type' => 'application/json']);
+        }
         return response()->json(['added' => $added], 201, ['Content-Type' => 'application/json']);
-    }
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -44,20 +40,21 @@ class ComponentsController extends Controller
         return response()->json($component, 200, ['Content-Type' => 'application/json']);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function show_by_name(string $name)
     {
         //
+        $component = Component::where('name', $name)->first();
+        return response()->json($component, 200, ['Content-Type' => 'application/json']);
     }
-
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
     {
-        //
+        $component = Component::find($id);
+        $component->update($request->all());
+        $component->save();
+        return response()->json($component, 200, ['Content-Type' => 'application/json']);
     }
 
     /**
@@ -65,6 +62,8 @@ class ComponentsController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $component = Component::find($id);
+        $component->delete();
+        return response()->json("deleted", 202, ['Content-Type' => 'application/json']);
     }
 }
