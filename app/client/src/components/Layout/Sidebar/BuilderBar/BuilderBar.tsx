@@ -1,16 +1,20 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import UpdateStyles from '../../../Home/UpdateStyles/UpdateStyles'
 import { Link } from 'react-router-dom'
 import './BuilderBar.scss'
 import TabbedBar from '../../../Builder/TabbedBar/TabbedBar'
+import { userContext } from '../../../../contexts/userContext'
 
 const BuilderBar = () => {
-  const [float, setFloat] = useState('float-l')
   const [visi, setVisi] = useState('')
+  const { user } = useContext(userContext)
   return (
     <div className="builder-sidebar">
-      <div className={`webapp-data ${float} ${visi}`}>
+      <div className={`webapp-data float-l ${visi}`}>
         <div className="webapp-data-wrapper">
+          <h3>
+            Project: <b>{user.metaData.title}</b>
+          </h3>
           <TabbedBar />
         </div>
         <div className="builder-header">

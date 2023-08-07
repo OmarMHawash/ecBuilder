@@ -1,7 +1,5 @@
-import React, { useEffect } from 'react'
-import { Component } from '@/src/types/types'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-// import ComponentDrop from '../../DropDowns/ComponentDrop'
 import CardE from '../../Elements/CardE'
 import { get } from '../../../utils/api'
 
@@ -9,14 +7,14 @@ import '../Dashboard.scss'
 import './Components.scss'
 import ComponentSheet from '../../Sheets/ComponentSheet'
 const ComponentsD = (): JSX.Element => {
-  const [components, setComponents] = React.useState([])
-  const [loaded, setLoaded] = React.useState(false)
+  const [components, setComponents] = useState([])
+  const [loaded, setLoaded] = useState(false)
+
   useEffect(() => {
     getComponents()
   }, [])
 
   const getComponents = () => {
-    // @ts-ignore
     ;(async () => {
       await get('/components')
         .then((res) => {
@@ -28,6 +26,7 @@ const ComponentsD = (): JSX.Element => {
         })
     })()
   }
+
   return (
     <div className="dashboard-section">
       <div className="dashboard-header">

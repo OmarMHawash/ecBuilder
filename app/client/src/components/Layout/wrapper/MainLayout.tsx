@@ -1,7 +1,7 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import HeaderB from '../../Sections/Header/HeaderB'
-import FooterB from '../../Sections/Footer/FooterB'
+import HeaderB from '../../Sections/EcBuilder/Header/HeaderB'
+import FooterB from '../../Sections/EcBuilder/Footer/FooterB'
 
 const HomeLayout = (): JSX.Element => {
   return (

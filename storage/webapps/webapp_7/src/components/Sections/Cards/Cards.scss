@@ -1,0 +1,15 @@
+.cards-section {
+  margin: 0 auto 150px auto;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  img {
+    filter: grayscale(60%);
+  }
+}
+
+.cards-section > div {
+  width: 30%;
+  min-width: 250px;
+}

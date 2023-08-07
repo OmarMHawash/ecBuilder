@@ -29,7 +29,6 @@ class WebappsController extends Controller
      */
     public function store(Request $request)
     {
-        //
         $webapp = Webapp::create($request->all());
         $palette = Palette::create([
             'name' => $webapp->name . '_' . $webapp->id,
@@ -89,6 +88,8 @@ class WebappsController extends Controller
     public function destroy(string $id)
     {
         $webapp = Webapp::find($id);
+        $palette = Palette::find($webapp->palette_id);
+        $palette->delete();
         $webapp->delete();
         return response()->json("deleted", 202, ['Content-Type' => 'application/json']);
     }

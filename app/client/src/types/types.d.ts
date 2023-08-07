@@ -4,10 +4,11 @@ export interface Palette {
   secd: string
   text: string
   accn: string
+  name: string
 }
 
 export interface User {
-  metaData: object
+  metaData: MetaData
   components: Array<Component>
 }
 
@@ -16,7 +17,7 @@ export interface Webapp {
   name: string
   logo: string
   description: string
-  'mini-description': string
+  mini_desc: string
   palette_id: number
 }
 
@@ -25,4 +26,13 @@ export interface Component {
   Value: any
   visible: boolean
   kind: string
+  id: number
+}
+
+interface MetaData {
+  title: string
+  logo: string
+  description: string
+  mini_desc: string
+  palette_id: number
 }

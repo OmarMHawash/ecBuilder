@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name')->default('my-project');
             $table->string('description', 1000)->default('This is a full lemgth description for your project. make it good! my-project');
             $table->string('mini_description', 1000)->default('short description');
-            $table->string('logo')->default('default_app_logo');
+            $table->string('logo')->default('https://seeklogo.com/images/L/logo-com-hr-logo-5636A4D2D5-seeklogo.com.png');
             $table->unsignedBigInteger('palette_id')->default(1);
             $table->foreign('palette_id')->references('id')->on('palettes');
             $table->timestamps();

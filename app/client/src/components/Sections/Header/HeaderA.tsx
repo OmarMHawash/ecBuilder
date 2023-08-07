@@ -1,19 +1,20 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import { Button } from '../../Elements/ButtonE'
-import { headerData, metaData } from '../../../utils/newProject'
+import { userContext } from '../../../contexts/userContext'
+import { headerData } from '../../../utils/newProject'
 import NavMenu from './NavMenu'
 import { Link } from 'react-router-dom'
 import './Header.scss'
 
 const HeaderA = (): JSX.Element => {
+  // const [user, setUser] = useState(useContext(userContext))
+  // console.log('HeaderA ~ user:', user)
   return (
     <header className="header-a prim">
       <div className="header-wrapper">
         <div className="header-logo-nav">
           <div className="header-logo">
-            <Link to="/">
-              <img src={metaData.logo} alt="logo" />
-            </Link>
+            <Link to="/">{/* <img src={metaData.logo} alt="logo" /> */}</Link>
           </div>
           <div className="header-nav">
             <NavMenu />

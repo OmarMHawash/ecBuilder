@@ -3,7 +3,6 @@ import { Button } from '../../Elements/ButtonE'
 import { get } from '../../../utils/api'
 import type { Palette } from '@/src/types/types'
 import { paletteContext } from '../../../contexts/PaletteContext'
-import { palette } from '../../../utils/defaults'
 import './UpdateStyles.scss'
 
 const UpdateStyles = (): JSX.Element => {
@@ -12,7 +11,7 @@ const UpdateStyles = (): JSX.Element => {
   const [ec3, setEc3] = useState('')
   const [ec4, setEc4] = useState('')
   const [ec5, setEc5] = useState('')
-  const { setPalette } = useContext(paletteContext)
+  const { setPalette, palette } = useContext(paletteContext)
 
   useEffect(() => {
     fillInputs(palette)
@@ -37,6 +36,7 @@ const UpdateStyles = (): JSX.Element => {
       secd: ec3,
       text: ec4,
       accn: ec5,
+      name: '',
     }
     setPalette(styleObj)
   }
@@ -52,6 +52,7 @@ const UpdateStyles = (): JSX.Element => {
         secd: res[0].secondary,
         text: res[0].text,
         accn: res[0].accent,
+        name: res[0].name,
       }
       setPalette(styleObj)
       fillInputs(styleObj)
@@ -61,6 +62,7 @@ const UpdateStyles = (): JSX.Element => {
   return (
     <div className="update-form">
       <form>
+        <h4>{palette.name}</h4>
         <div className="input-feild">
           <div className="label-wrapper">
             <div className="color-circle back"> </div>

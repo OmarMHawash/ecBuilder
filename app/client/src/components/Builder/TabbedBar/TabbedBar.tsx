@@ -2,6 +2,10 @@ import React, { useState, useContext } from 'react'
 import { userContext } from '../../../contexts/userContext'
 import { Button } from '../../Elements/ButtonE'
 import './TabbedBar.scss'
+import { useLocation } from 'react-router-dom'
+import { paletteContext } from '../../../contexts/PaletteContext'
+import { toast } from '../../ui/use-toast'
+import { put } from '../../../utils/api'
 
 const TabbedBar = (): JSX.Element => {
   const [headVis, setHeadVis] = useState('')
@@ -11,6 +15,8 @@ const TabbedBar = (): JSX.Element => {
   const [heroVis, setHeroVis] = useState('')
   const [accordionVis, setAccordionVis] = useState('')
   const { user, setUser } = useContext(userContext)
+  const { palette } = useContext(paletteContext)
+  const projectId = useLocation().pathname.split('/')[2]
 
   const handleChange = (e: any, cKind: string) => {
     let value = e.target.value
@@ -56,7 +62,33 @@ const TabbedBar = (): JSX.Element => {
     }
   }
 
-  const handleSave = () => {}
+  const handleSave = async () => {
+    console.log('handleSave - ', user)
+    toast({
+      title: 'Saving...',
+    })
+    const paletteId = user.metaData.palette_id
+    const paletteData = {
+      primary: palette.prim,
+      secondary: palette.secd,
+      accent: palette.accn,
+      background: palette.back,
+      text: palette.text,
+    }
+    await put(`/palettes/${paletteId}`, paletteData)
+      .then((res) => {
+        console.log(res)
+        toast({
+          title: 'Saved successfully...',
+        })
+        updateComponents()
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
+
+  const updateComponents = async () => {}
 
   return (
     <div className="tabbed-bar">
@@ -73,7 +105,6 @@ const TabbedBar = (): JSX.Element => {
           <option value="headerA">Header 1</option>
           <option value="headerB">Header 2</option>
         </select>
-
         <br />
         <input
           type="checkbox"
@@ -83,7 +114,6 @@ const TabbedBar = (): JSX.Element => {
             handleChange(e, 'hero')
           }}
         />
-
         <label htmlFor="hero"> hero</label>
         <br />
         <input
@@ -131,10 +161,19 @@ const TabbedBar = (): JSX.Element => {
       </select>
       <div className="buttons">
         <Button onClick={handleSave} variant="secondary">
-          save
+          Save
         </Button>
-        <a href="http://localhost:8000/api/v1/webapps/2/download">
-          <Button variant="destructive">Download</Button>
+        <a href={`http://localhost:8000/api/v1/webapps/${projectId}/download`}>
+          <Button
+            variant="destructive"
+            onClick={() => {
+              toast({
+                title: 'Starting File Download...',
+              })
+            }}
+          >
+            Download
+          </Button>
         </a>
       </div>
     </div>

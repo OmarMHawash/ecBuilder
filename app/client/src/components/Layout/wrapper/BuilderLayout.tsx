@@ -3,8 +3,8 @@ import { Outlet } from 'react-router-dom'
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
 import { type PaletteContext, paletteContext } from '../../../contexts/PaletteContext'
 import { userContext, type UserContext } from '../../../contexts/userContext'
-import type { Palette, User } from '@/src/types/types'
 import { Toaster } from '../../ui/toaster'
+import type { Palette, User } from '@/src/types/types'
 
 const BuilderLayout = (): JSX.Element => {
   const [paletteVal, setPaletteVal] = useState(useContext(paletteContext).palette)
@@ -18,6 +18,7 @@ const BuilderLayout = (): JSX.Element => {
         secd: pal.secd !== '' ? pal.secd : paletteVal.secd,
         text: pal.text !== '' ? pal.text : paletteVal.text,
         accn: pal.accn !== '' ? pal.accn : paletteVal.accn,
+        name: pal.name !== '' ? pal.name : paletteVal.name,
       }
       setPaletteVal(newPal)
     },
@@ -26,8 +27,8 @@ const BuilderLayout = (): JSX.Element => {
 
   const userObj: UserContext = {
     setUser: (user: User) => {
-      console.log('StyledLayout ~ user:', user)
       setUserVal(user)
+      console.log('BuilderLayout ~ user:', user)
     },
     user: userVal,
   }
@@ -45,7 +46,7 @@ const BuilderLayout = (): JSX.Element => {
   .text-p {
     color: ${paletteVal.prim};
   }
-  .secd, section, table, aside, thead, textarea, select, button {
+  .secd, section, table, aside, thead, textarea, button {
     background-color: ${paletteVal.secd};
   }
   .text-s {

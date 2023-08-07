@@ -1,3 +1,5 @@
+import { MetaData } from '../types/types'
+
 export const palette = {
   back: '#F2F2F2',
   prim: '#E6E6E6',
@@ -6,12 +8,13 @@ export const palette = {
   accn: '#BFBFBFaa',
 }
 
-export const metaData = {
+export const metaData: MetaData = {
   title: 'Awesome Project',
   mini_desc: 'A really cool UI library',
   description:
     'This is a website that I built using React and TailwindCSS, with a little bit of TypeScript. I hope you enjoy!',
   logo: 'https://via.placeholder.com/150',
+  palette_id: 1,
 }
 
 export const headerData = {

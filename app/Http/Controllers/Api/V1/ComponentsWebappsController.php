@@ -30,11 +30,29 @@ class ComponentsWebappsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    // ! this is not needed
+    // public function store(Request $request)
+    // {
+    //     // do it
+    //     $webapp_components = ComponentsWebapp::create($request->all());
+    //     return response()->json($webapp_components, 201, ['Content-Type' => 'application/json']);
+    // }
+
+    public function store_many(Request $request, string $id)
     {
-        // do it
-        $webapp_components = ComponentsWebapp::create($request->all());
-        return response()->json($webapp_components, 201, ['Content-Type' => 'application/json']);
+        $added = 0;
+        $web_comps = ComponentsWebapp::where('webapp_id', $id)->get();
+        foreach ($web_comps as $webcomp) {
+            $webcomp->delete();
+        }
+        foreach ($request->all() as $webapp_components) {
+            ComponentsWebapp::create($webapp_components);
+            $added++;
+        }
+        if ($added == 0) {
+            return response()->json("failed to add components to webapp", 400, ['Content-Type' => 'application/json']);
+        }
+        return response()->json(['added components' => $added], 201, ['Content-Type' => 'application/json']);
     }
 
     /**
