@@ -14,9 +14,7 @@ const FormSchema = z.object({
   name: z.string().min(4, {
     message: 'name must be at least 4 characters.',
   }),
-  description: z.string().min(4, {
-    message: 'description must be at least 20 characters.',
-  }),
+  description: z.string(),
   logo: z.string(),
 })
 

@@ -90,8 +90,8 @@ class WebappsController extends Controller
     {
         $webapp = Webapp::find($id);
         $palette = Palette::find($webapp->palette_id);
-        $palette->delete();
         $webapp->delete();
+        $palette->delete();
         return response()->json("deleted", 202, ['Content-Type' => 'application/json']);
     }
 

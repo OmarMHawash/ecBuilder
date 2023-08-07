@@ -1,0 +1,109 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --back_p: #ffffff;
+  --back_pt: #dbdbdb50;
+  --prim_p: #8fb3ff;
+  --secd_p: #ebf1ff;
+  --text_p: #0000aa;
+  --accn_p: #a849d750;
+}
+
+main {
+  min-height: 65vh;
+}
+h1 {
+  font-size: 3.5rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.6rem;
+}
+h4 {
+  font-size: 1.35rem;
+}
+h5 {
+  font-size: 1.1rem;
+}
+h6 {
+  font-style: italic;
+  font-size: 0.9rem;
+}
+p {
+  font-size: 1.1rem;
+}
+.wt-1 {
+  font-weight: 100;
+}
+.wt-5 {
+  font-weight: 500;
+}
+.wt-9 {
+  font-weight: 900;
+}
+
+.img-placeholder {
+  min-height: 300px;
+}
+
+.back,
+body {
+  background-color: var(--back_p);
+}
+.back-t {
+  background-color: var(--back_pt);
+}
+.text-b {
+  color: var(--back_p);
+}
+.prim,
+tbody,
+.footer-1 {
+  background-color: var(--prim_p);
+}
+.text-p {
+  color: var(--prim_p);
+}
+.secd,
+section,
+table,
+aside,
+thead,
+input,
+textarea,
+select,
+button,
+footer {
+  background-color: var(--secd_p);
+}
+.text-s {
+  color: var(--secd_p);
+}
+.text {
+  background-color: var(--text_p);
+}
+.text-t,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li,
+label,
+pre {
+  color: var(--text_p);
+}
+.text-a {
+  color: var(--accn_p);
+}
+.accn {
+  color: var(--accn_p);
+  background-color: var(--accn_p);
+}

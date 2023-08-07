@@ -1,0 +1,19 @@
+.hero-section {
+  width: 100%;
+  display: flex;
+  margin: 0px auto 0px auto;
+  padding: 180px 0;
+  height: 90vh;
+  .hero-content {
+    width: 50%;
+    padding: 30px 105px;
+    h1 {
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+  }
+  .hero-image {
+    width: 45%;
+  }
+}
