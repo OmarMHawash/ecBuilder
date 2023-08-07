@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import BuilderBar from '../../components/Layout/Sidebar/BuilderBar/BuilderBar'
@@ -21,6 +22,7 @@ const Builder = (): JSX.Element => {
 
   const { setUser, user } = useContext(userContext)
   const { setPalette } = useContext(paletteContext)
+  const projectId = location.pathname.split('/')[2]
 
   window.addEventListener('beforeunload', (ev) => {
     ev.preventDefault()
@@ -32,9 +34,7 @@ const Builder = (): JSX.Element => {
   }, [])
 
   const getProject = async () => {
-    console.log('getting data')
-    const pojectId = location.pathname.split('/')[2]
-    await get(`/webapps/${pojectId}`)
+    await get(`/webapps/${projectId}`)
       .then((res) => {
         const metaData = {
           title: res.name,
@@ -47,7 +47,7 @@ const Builder = (): JSX.Element => {
         getPalette(res.palette_id)
       })
       .then(() => {
-        getComponents()
+        getActiveComponents()
       })
       .catch((err) => {
         console.log(err)
@@ -72,8 +72,8 @@ const Builder = (): JSX.Element => {
       })
   }
 
-  const getComponents = async () => {
-    await get(`/components`)
+  const getActiveComponents = async () => {
+    await get(`/active_components/${projectId}`)
       .then((res) => {
         const newComponents = res.map((item: any, idx: number) => {
           const newItem = {
@@ -81,7 +81,7 @@ const Builder = (): JSX.Element => {
             name: item.name,
             Value: user.components[idx].Value,
             kind: item.kind,
-            visible: false,
+            visible: item.visible,
           }
           return newItem
         })
@@ -94,18 +94,14 @@ const Builder = (): JSX.Element => {
   }
 
   useEffect(() => {
-    console.log('metaData Eff', metaData)
-    console.log('components Eff', components)
     if (components[0] && metaData.title) {
       setUser({ components, metaData })
       setProject(1)
-      console.log('project Eff', project)
     }
   }, [metaData, components])
 
   useEffect(() => {
     project && setLoaded(true)
-    console.log('loaded Eff', loaded)
   }, [project])
 
   return (
@@ -128,3 +124,25 @@ const Builder = (): JSX.Element => {
 }
 
 export default Builder
+
+// await get(`/components_webapps/${projectId}`)
+//       .then((res) => {
+//         console.log('res', res)
+//         console.log('components', components)
+//         const newComponents = components.map((item: any) => {
+//           const newItem = {
+//             ...item,
+//             visible: res.some((el: any) => el.component_id === item.id) ? true : false,
+//           }
+//           console.log(res.some((el: any) => el.component_id === item.id))
+//           return newItem
+//         })
+//         console.log('newComponents', newComponents)
+//         // @ts-ignore
+//         setActiveComponents(true)
+//         // @ts-ignore
+//         setComponents(newComponents)
+//       })
+//       .catch((err) => {
+//         console.log(err)
+//       })

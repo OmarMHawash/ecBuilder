@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreComponentRequest;
 use App\Models\Component;
+use App\Models\ComponentsWebapp;
 use Illuminate\Http\Request;
 
 class ComponentsController extends Controller
@@ -28,6 +29,25 @@ class ComponentsController extends Controller
             return response()->json("failed to add components", 400, ['Content-Type' => 'application/json']);
         }
         return response()->json(['added' => $added], 201, ['Content-Type' => 'application/json']);
+    }
+
+    public function active_components(string $id)
+    {
+        $webapp_components = ComponentsWebapp::where('webapp_id', $id)->get();
+        $components = Component::all();
+        $active_components = [];
+        foreach ($components as $component) {
+            foreach ($webapp_components as $webapp_component) {
+                $component->visible = false;
+                if ($webapp_component->component_id == $component->id) {
+                    $component->visible = true;
+                    break;
+                }
+            }
+            array_push($active_components, $component);
+        }
+        // dd($active_components);
+        return response()->json($active_components, 200, ['Content-Type' => 'application/json']);
     }
 
     /**

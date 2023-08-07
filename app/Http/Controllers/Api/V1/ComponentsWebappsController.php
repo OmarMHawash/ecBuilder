@@ -18,41 +18,31 @@ class ComponentsWebappsController extends Controller
         return response()->json($components_webapps, 200, ['Content-Type' => 'application/json']);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    // ! this is not needed
-    // public function store(Request $request)
-    // {
-    //     // do it
-    //     $webapp_components = ComponentsWebapp::create($request->all());
-    //     return response()->json($webapp_components, 201, ['Content-Type' => 'application/json']);
-    // }
-
     public function store_many(Request $request, string $id)
     {
         $added = 0;
         $web_comps = ComponentsWebapp::where('webapp_id', $id)->get();
+
         foreach ($web_comps as $webcomp) {
             $webcomp->delete();
         }
-        foreach ($request->all() as $webapp_components) {
-            ComponentsWebapp::create($webapp_components);
+        foreach ($request->all() as $webcomp) {
+            ComponentsWebapp::create($webcomp);
             $added++;
         }
         if ($added == 0) {
             return response()->json("failed to add components to webapp", 400, ['Content-Type' => 'application/json']);
         }
         return response()->json(['added components' => $added], 201, ['Content-Type' => 'application/json']);
+
+        // foreach ($request->all() as $component) {
+        //     Component::create($component);
+        //     $added++;
+        // }
+        // if ($added == 0) {
+        //     return response()->json("failed to add components", 400, ['Content-Type' => 'application/json']);
+        // }
+        // return response()->json(['added' => $added], 201, ['Content-Type' => 'application/json']);
     }
 
     /**
@@ -66,26 +56,15 @@ class ComponentsWebappsController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
-        //
+        // do it
+        $webapp_components = ComponentsWebapp::where('webapp_id', $id)->get();
+        foreach ($webapp_components as $webapp_component) {
+            $webapp_component->delete();
+        }
+        return response()->json("deleted", 202, ['Content-Type' => 'application/json']);
     }
 }
