@@ -5,7 +5,7 @@ import './TabbedBar.scss'
 import { useLocation } from 'react-router-dom'
 import { paletteContext } from '../../../contexts/PaletteContext'
 import { toast } from '../../ui/use-toast'
-import { put } from '../../../utils/api'
+import { post, put } from '../../../utils/api'
 
 const TabbedBar = (): JSX.Element => {
   const [headVis, setHeadVis] = useState('')
@@ -57,7 +57,7 @@ const TabbedBar = (): JSX.Element => {
         })
       }
       const newUser = { ...user, components: newComponents }
-      console.log('newUser', newUser)
+      // console.log('newUser', newUser)
       setUser(newUser)
     }
   }
@@ -79,7 +79,7 @@ const TabbedBar = (): JSX.Element => {
       .then((res) => {
         console.log(res)
         toast({
-          title: 'Saved successfully...',
+          title: 'Saving palette...',
         })
         updateComponents()
       })
@@ -88,7 +88,30 @@ const TabbedBar = (): JSX.Element => {
       })
   }
 
-  const updateComponents = async () => {}
+  const updateComponents = async () => {
+    let validComponents = user.components
+      .filter((item) => {
+        return item.visible === true
+      })
+      .map((item) => {
+        return {
+          webapp_id: projectId,
+          component_id: item.id,
+        }
+      })
+    console.log('validComponents ~ validComponents:', validComponents)
+
+    await post(`/components_webapps/${projectId}`, validComponents)
+      .then((res) => {
+        console.log(res)
+        toast({
+          title: 'Saved successfully...',
+        })
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
 
   return (
     <div className="tabbed-bar">
@@ -167,6 +190,7 @@ const TabbedBar = (): JSX.Element => {
           <Button
             variant="destructive"
             onClick={() => {
+              handleSave()
               toast({
                 title: 'Starting File Download...',
               })

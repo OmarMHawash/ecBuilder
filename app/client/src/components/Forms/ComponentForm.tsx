@@ -36,10 +36,9 @@ export function ComponentForm() {
   }
 
   const newComponent = async (data: z.infer<typeof FormSchema>) => {
-    console.log(data)
     post('/components', data)
       .then((res) => {
-        console.log(res)
+        // console.log(res)
         // todo: apply data to localstorage and context
         navigate(`/quick-start`)
       })

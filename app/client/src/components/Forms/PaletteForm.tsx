@@ -30,7 +30,7 @@ export function PaletteForm() {
   }
 
   const newPalette = async (data: z.infer<typeof FormSchema>) => {
-    console.log(data)
+    // console.log(data)
     post('/palettes', data)
       .then((res) => {
         console.log(res)

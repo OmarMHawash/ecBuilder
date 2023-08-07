@@ -19,7 +19,7 @@ const ComponentsD = (): JSX.Element => {
       await get('/components')
         .then((res) => {
           setComponents(res)
-          console.log(res)
+          // console.log(res)
         })
         .then(() => {
           setLoaded(true)

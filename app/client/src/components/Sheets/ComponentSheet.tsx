@@ -26,10 +26,10 @@ const ComponentSheet = (): JSX.Element => {
         config: `${item.visible}`,
       }
     })
-    console.log('postComponents', postComponents)
+    // console.log('postComponents', postComponents)
     post('components/many', postComponents)
       .then((res) => {
-        console.log('res', res)
+        // console.log('res', res)
       })
       .catch((err) => {
         console.log('err', err.response.data.message)

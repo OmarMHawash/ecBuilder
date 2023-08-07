@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
+use App\Models\Component;
 use App\Models\ComponentsWebapp;
 use App\Models\Palette;
 use App\Models\Webapp;
@@ -100,8 +101,34 @@ class WebappsController extends Controller
         $palette = Palette::find($webapp->palette_id);
 
         $webapps_base = '/storage/webapps';
+        $sec_path = '../components/Sections';
+
         copy_folder($webapps_base, $webapp->id);
         replace_palette($palette, $webapp->id);
+
+        $web_comps = ComponentsWebapp::where('webapp_id', $webapp->id)->get();
+        $components = [];
+        foreach ($web_comps as $web_comp) {
+            $component = Component::find($web_comp->component_id);
+            array_push($components, $component->name);
+        }
+
+        $JSX_imports = "import React from 'react'";
+        foreach ($components as $component) {
+            $JSX_imports .= "\n" . JSX_import($component, $sec_path);
+        }
+
+        $JSX_components = "";
+        foreach ($components as $component) {
+            $JSX_components .= "\n" . JSX_component($component, $sec_path);
+        }
+
+        // dd([
+        //     'JSX_imports' => $JSX_imports,
+        //     'JSX_components' => $JSX_components,
+        // ]);
+
+        replace_home($JSX_imports, $JSX_components, $webapp->id);
 
         zip_folder($webapp->id);
 

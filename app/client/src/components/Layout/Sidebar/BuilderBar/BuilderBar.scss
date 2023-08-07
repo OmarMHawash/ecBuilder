@@ -6,6 +6,7 @@
   border-radius: 3px;
   z-index: 20;
   box-shadow: 1px 1px 10px 1px #00000020;
+  padding: 60px 10px;
 }
 
 .floating-circle {
@@ -32,11 +33,16 @@
 .builder-header {
   position: fixed;
   top: 0;
-  left: 50vw;
-  width: 100px;
+  left: 0;
+  width: 250px;
   padding: 5px;
   border-radius: 0 0 5px 5px;
   background-color: rgba(219, 219, 219, 0.8588235294);
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  h4 {
+    border: 1px solid #00000020;
+    border-radius: 5px;
+    padding: 5px;
+  }
 }

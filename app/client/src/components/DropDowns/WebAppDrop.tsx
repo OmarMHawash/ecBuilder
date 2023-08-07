@@ -19,9 +19,9 @@ const WebAppDrop = (item: any): JSX.Element => {
     toast({
       title: `Deleting ${item.name}... 🚀`,
     })
-    console.log(item)
+    // console.log(item)
     await del(`/webapps/${item.id}`).then((res) => {
-      console.log(res)
+      // console.log(res)
       navigate('/quick-start')
     })
   }

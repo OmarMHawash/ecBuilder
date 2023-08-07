@@ -20,7 +20,7 @@ const PalettesD = (): JSX.Element => {
       await get('/palettes')
         .then((res) => {
           setpalettes(res)
-          console.log(res)
+          // console.log(res)
         })
         .then(() => {
           setLoaded(true)

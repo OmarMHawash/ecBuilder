@@ -19,10 +19,10 @@ const BuilderBar = () => {
         </div>
         <div className="builder-header">
           <Link to="/">
-            <h4>🧱</h4>
+            <h4>🧱 Home</h4>
           </Link>
           <Link to="/quick-start">
-            <h4>🏗</h4>
+            <h4>🏗 Projects</h4>
           </Link>
         </div>
       </div>

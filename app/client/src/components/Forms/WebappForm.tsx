@@ -34,7 +34,7 @@ export function InputForm() {
   }
 
   const newProject = async (data: z.infer<typeof FormSchema>) => {
-    console.log(data)
+    // console.log(data)
     post('/webapps', data)
       .then((res) => {
         console.log(res)

@@ -85,7 +85,7 @@ const Builder = (): JSX.Element => {
           }
           return newItem
         })
-        console.log('newComponents', newComponents)
+        // console.log('newComponents', newComponents)
         setComponents(newComponents)
       })
       .catch((err) => {

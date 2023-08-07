@@ -46,7 +46,6 @@ class ComponentsController extends Controller
             }
             array_push($active_components, $component);
         }
-        // dd($active_components);
         return response()->json($active_components, 200, ['Content-Type' => 'application/json']);
     }
 
