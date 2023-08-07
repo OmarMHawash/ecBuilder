@@ -31,7 +31,7 @@ const ComponentsD = (): JSX.Element => {
   return (
     <div className="dashboard-section">
       <div className="dashboard-header">
-        <h2>Your Components: </h2>
+        <h3>Components: </h3>
         <ComponentSheet />
       </div>
       <div className="dashboard">

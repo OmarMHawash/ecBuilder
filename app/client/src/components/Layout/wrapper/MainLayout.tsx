@@ -5,7 +5,7 @@ import FooterB from '../../Sections/Footer/FooterB'
 
 const HomeLayout = (): JSX.Element => {
   return (
-    <div className="layout">
+    <div className="layout prim">
       <HeaderB />
       <main className="app-main">
         <Outlet />

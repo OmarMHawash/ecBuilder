@@ -2,7 +2,8 @@
   display: flex;
   justify-content: space-between;
   height: 50px;
-  box-shadow: 0px 0px 5px 0px #00000010;
+  border-bottom: 1px solid #ccc;
+  box-shadow: 0px 0px 10px 0px #00000030;
   .user-content {
     width: fit-content;
     display: flex;

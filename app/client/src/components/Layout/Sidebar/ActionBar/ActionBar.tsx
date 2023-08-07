@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import './ActionBar.scss'
 const ActionBar = () => {
   return (
-    <div className="action-panel accn">
+    <div className="action-panel back">
       <div className="upper-panel">
         <div className="action-header">
           <Link

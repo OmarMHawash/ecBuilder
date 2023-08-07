@@ -8,24 +8,37 @@
     font-weight: 500;
   }
   .dashboard {
-    background-color: white;
     border-radius: 10px;
-    min-height: 78vh;
+    min-height: fit-content;
+    padding: 5px;
     .dashboard-wrapper {
       padding: 20px;
+      border-radius: 10px;
+      display: flex;
+      overflow: auto;
+      background-color: var(--back_p);
     }
     .dashboard-card {
+      min-width: 300px;
       width: 300px;
       height: fit-content;
       position: relative;
       margin-right: 30px;
-      overflow-x: hidden;
-      overflow-y: hidden;
       .dropd {
         position: absolute;
         bottom: 10px;
         right: 10px;
       }
     }
+  }
+  div::-webkit-scrollbar-thumb {
+    background-color: var(--accn_p);
+    border-radius: 10px;
+  }
+  div::-webkit-scrollbar {
+    height: 12px;
+    width: 0px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
   }
 }

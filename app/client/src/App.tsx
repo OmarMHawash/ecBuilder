@@ -16,16 +16,16 @@ function App(): JSX.Element {
     <div className="app">
       <Routes>
         <Route element={<BuilderLayout />}>
-          <Route path="/quick-start" element={<QuickStart />} />
           <Route path="/demo" element={<All />} />
           <Route path="/project/:id" element={<Builder />} />
-          <Route path="/palettes" element={<Palettes />} />
-          <Route path="/components" element={<Components />} />
-          <Route path="/website" element={<Website />} />
         </Route>
         <Route element={<HomeLayout />}>
           <Route path="/" element={<Home />} />
         </Route>
+        <Route path="/quick-start" element={<QuickStart />} />
+        <Route path="/palettes" element={<Palettes />} />
+        <Route path="/components" element={<Components />} />
+        <Route path="/website" element={<Website />} />
       </Routes>
     </div>
   )

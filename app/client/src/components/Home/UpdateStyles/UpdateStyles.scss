@@ -41,7 +41,7 @@
       margin: 5px;
     }
   }
-  div::-webkit-scrollbar {
+  &::-webkit-scrollbar {
     height: 10px;
     width: 0px;
     background: transparent;

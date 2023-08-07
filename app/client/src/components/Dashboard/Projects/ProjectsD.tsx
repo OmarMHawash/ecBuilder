@@ -30,7 +30,7 @@ const ProjectsD = (): JSX.Element => {
   return (
     <div className="dashboard-section">
       <div className="dashboard-header">
-        <h2>Your projects: </h2>
+        <h3>Projects: </h3>
         <ProjectSheet />
       </div>
       <div className="dashboard">

@@ -5,7 +5,7 @@ import PanelHeader from '../../components/Builder/PanelHeader/PanelHeader'
 
 const QuickStart = (): JSX.Element => {
   return (
-    <div className="quick-start secd">
+    <div className="quick-start">
       <div className="quick-start-wrapper">
         <ActionBar />
         <div className="quick-start-content">

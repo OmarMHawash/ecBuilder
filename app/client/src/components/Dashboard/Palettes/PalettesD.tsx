@@ -30,7 +30,7 @@ const PalettesD = (): JSX.Element => {
   return (
     <div className="dashboard-section">
       <div className="dashboard-header">
-        <h2>Your Palettes: </h2>
+        <h3>Palettes: </h3>
         <PaletteSheet />
       </div>
       <div className="dashboard">
